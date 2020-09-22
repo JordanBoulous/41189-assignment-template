@@ -61,6 +61,22 @@ jupyter:
 
 
 
+- Archana, C., Pavan, J. & Satish, S. 2020. ‘COVID 19: Outbreak, Structure, and Current Therapeutic Strategies.’, Sakun Publishing House, vol. 11, no. 7, pp. 6825-6835. http://web.b.ebscohost.com.ezproxy.lib.uts.edu.au/ehost/pdfviewer/pdfviewer?vid=1&sid=5681bd2d-ac79-472a-8acc-63536f582b70%40sessionmgr101 
+
+This article gives a detailed description of COVID-19 and includes details about the original outbreak in Wuhan, forms of transmission, virion structure, physicochemical properties, replication, methods of diagnosis, treatment and precautions to prevent spread. The contents of the text are complete, clearly documented and use a variety of different resources to ensure accuracy. It also used very recent information that was available and despite being released in July, the article is still relevant in September. The authors study pharmacy, biomedical science and life science - so there may be some vested interest and bias due to the authors studying similar courses.
+The article states that person-to-person transmission is likely for COVID-19 and is primarily spread through direct contact and droplets from a cough or sneeze. However, it was also found in stool samples, the gastrointestinal tract, saliva and urine. It also states that the SARS-CoV-2 (COVID-19) virion is spherical with a diameter of 80-120nm, contains a non-segmented, positive-sense RNA genome and contains numerous glycoproteins. Diagnosis and testing involves a swab and is often performed when a patient experiences fever, a sore throat, dry cough, dyspnea or they were in contact with a recent confirmed case.
+Preventative measures include wearing face masks and other personal protective equipment (gloves), good hand hygiene, social distancing, isolation and quarantine. Rapid diagnosis, vaccines and therapeutics are critical in managing the COVID-19 pandemic.
+
+
+
+- Australian Government, 2020. ‘What you need to know about coronavirus (COVID-19)’, Department of Health.https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19 
+
+This news page from the Australian Government explains what COVID-19 is, symptoms and what to do if you have them, how it spreads, at risk demographics, preventative measures, how to get tested and the post-testing process. As it is written by the government, the information is complete, accurate and comes from a reliable source. The page and the pages for the individual states are constantly being updated as the situation progresses.
+The page also examines the symptoms of COVID-19 as the previous article did, although this is in a more concise manner. It explains how the seriousness of COVID-19 can range from a mild illness to pneumonia and how some recover quicker than others. It lists the same symptoms as the article (fever, cough, shortness of breath, sore throat) as well as uncommon symptoms. If an individual experiences any of these symptoms, they are advised to get tested and contact the ‘Coronavirus Helpline’ which provides 24/7 support. It is important to isolate after getting tested. The demographics most at risk according to the page are travellers who have recently been overseas, those who have been in contact with someone with COVID-19, people in correctional facilities and people in group residential settings. If an individual has been overseas, they must isolate for 14 days and testing is important. Those most at risk of serious illness include older people and people with compromised immune systems, disabilities or chronic conditions. The page also covers the same preventative measures as the article as well as avoiding public gatherings, and give links to explain how each measure is effective. Many places of academia and businesses apply these preventative measures to prevent the spread of COVID-19. 
+Various other government pages are available for each state and territory which discuss the different preventative measures and management of COVID-19. One of these include ‘Financial assistance for businesses’ on the NSW page as many businesses are struggling financially due to people isolating.
+
+
+
 ## Identify the system + stakeholders. For this, you will need to construct a “rich picture” that captures the essential elements.
 
 
@@ -173,13 +189,15 @@ Through the use of riot models, with a specific focus on the Granovetter thresho
 Agent based models take into consideration the number of degrees for each individual agent. This is necessary, as the degrees, or the connections, allow the model to measure the amount of interactions that each infected model may have. Also, the individual recovery rate is considered in the agent based model, with the average of 14 days being applied to agents after they have been recognised as infected. 
 
 - Covid agent based model without lockdown being implemented as a preventative measure:
-![AgentBasedModel1.JPG](attachment:AgentBasedModel1.JPG)
+
+![AgentBasedModel1.JPG](ComplexSystemsImages/AgentBasedModel1.JPG)
 
 This model is simulating the spread of covid-19 in a group of 100,000 agents over 100 days, assuming that 100 people are initially infected. These individuals are said to have an average of 20 connections, with a 1.4% chance of spreading the virus to those agents. Also, the recovery rate is approximately 14 days after an individual is infected.
 
 
 - Covid agent based model with lockdown being implemented after 15 days of the virus being present in society:
-![AgentBasedModel2.JPG](attachment:AgentBasedModel2.JPG)
+
+![AgentBasedModel2.JPG](ComplexSystemsImages/AgentBasedModel2.JPG)
 This model keeps all the same characteristics as the prior model, except after 15 days lockdown was forced upon society, which is said to reduce interactions by 90% and will last 85 days.
 
 
@@ -190,22 +208,30 @@ Covid-19 Demonstration Model. (2020). Retrieved 22 September 2020, from http://c
 #### Schelling’s Segregation Model:
 Using the segregation model provided by NetLogo, we are able to input our own similarity rate to measure the behaviours of individuals when they require X% of individuals around them to have been vaccinated in order to be satisfied.
 - Segregation Model with 0% similarity rate (0% of neighbours must be vaccinated)
+
 ![Segregation1.JPG](ComplexSystemsImages/Segregation1.JPG)
+
 Individuals are not at all segregated
 
 
 - Segregation Model with 25% similarity rate (25% of neighbours must be vaccinated)
-![Segregation2.JPG](attachment:Segregation2.JPG)
+
+![Segregation2.JPG](ComplexSystemsImages/Segregation2.JPG)
+
 Individuals are still fairly mixed with non-similar agents, but slightly segregated
 
 
 - Segregation Model with 50% similarity rate (50% of neighbours must be vaccinated)
-![Segregation3.JPG](attachment:Segregation3.JPG)
+
+![Segregation3.JPG](ComplexSystemsImages/Segregation3.JPG)
+
 Individuals are heavily, but not entirely, segregated
 
 
 - Segregation Model with 75% similarity rate (75% of neighbours must be vaccinated
-![Segregation4.JPG](attachment:Segregation4.JPG)
+
+![Segregation4.JPG](ComplexSystemsImages/Segregation4.JPG)
+
 Individuals are almost entirely segregated.
 
 Wilensky, U. (1997). NetLogo Segregation model. http://ccl.northwestern.edu/netlogo/models/Segregation. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
