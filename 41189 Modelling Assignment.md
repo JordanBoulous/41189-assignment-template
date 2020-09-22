@@ -14,7 +14,7 @@ jupyter:
 ---
 
 <!-- #region toc-hr-collapsed=false -->
- **41189 Modelling Assignment — Group X**
+ **41189 Modelling Assignment — Group 6**
  
  Topic: Measuring both the spread of Covid-19 and society’s response to preventative measures to the pandemic
  
@@ -32,6 +32,9 @@ jupyter:
 <!-- #endregion -->
 
 ## State the problem, why it is important/relevant to you and/or more broadly to society
+
+
+
 
 
 
@@ -70,7 +73,13 @@ jupyter:
 
 
 
+
+
+
 ## Identify current models or prevailing frames that are being used to address the problem
+
+
+
 
 
 
@@ -93,11 +102,20 @@ jupyter:
 
 
 
+
+
+
 <!-- #region toc-hr-collapsed=false -->
 # Conceptual Models
 <!-- #endregion -->
 
 ## Based on your self-study of the supermarket of models, explain the three models that you have chosen to look at the problem
+
+
+
+
+
+
 
 
 
@@ -137,38 +155,42 @@ Through the use of riot models, with a specific focus on the Granovetter thresho
 Agent based models take into consideration the number of degrees for each individual agent. This is necessary, as the degrees, or the connections, allow the model to measure the amount of interactions that each infected model may have. Also, the individual recovery rate is considered in the agent based model, with the average of 14 days being applied to agents after they have been recognised as infected. 
 
 - Covid agent based model without lockdown being implemented as a preventative measure:
-![](AgentBasedModel1.jpg)
+![AgentBasedModel1.JPG](attachment:AgentBasedModel1.JPG)
 
 This model is simulating the spread of covid-19 in a group of 100,000 agents over 100 days, assuming that 100 people are initially infected. These individuals are said to have an average of 20 connections, with a 1.4% chance of spreading the virus to those agents. Also, the recovery rate is approximately 14 days after an individual is infected.
 
 
 - Covid agent based model with lockdown being implemented after 15 days of the virus being present in society:
-![](AgentBasedModel2.jpg)
+![AgentBasedModel2.JPG](attachment:AgentBasedModel2.JPG)
 This model keeps all the same characteristics as the prior model, except after 15 days lockdown was forced upon society, which is said to reduce interactions by 90% and will last 85 days.
 
+
+Covid-19 Demonstration Model. (2020). Retrieved 22 September 2020, from http://covidagentmodel.com/
 <!-- #endregion -->
 
 <!-- #region -->
 #### Schelling’s Segregation Model:
 Using the segregation model provided by NetLogo, we are able to input our own similarity rate to measure the behaviours of individuals when they require X% of individuals around them to have been vaccinated in order to be satisfied.
 - Segregation Model with 0% similarity rate (0% of neighbours must be vaccinated)
-![](Segregation1.jpg)
+![Segregation1.JPG](attachment:Segregation1.JPG)
 Individuals are not at all segregated
 
 
 - Segregation Model with 25% similarity rate (25% of neighbours must be vaccinated)
-![](Segregation2.jpg)
+![Segregation2.JPG](attachment:Segregation2.JPG)
 Individuals are still fairly mixed with non-similar agents, but slightly segregated
 
 
 - Segregation Model with 50% similarity rate (50% of neighbours must be vaccinated)
-![](Segregation3.jpg)
+![Segregation3.JPG](attachment:Segregation3.JPG)
 Individuals are heavily, but not entirely, segregated
 
 
 - Segregation Model with 75% similarity rate (75% of neighbours must be vaccinated
-![](Segregation4.jpg)
+![Segregation4.JPG](attachment:Segregation4.JPG)
 Individuals are almost entirely segregated.
+
+Wilensky, U. (1997). NetLogo Segregation model. http://ccl.northwestern.edu/netlogo/models/Segregation. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
 
 <!-- #endregion -->
 
