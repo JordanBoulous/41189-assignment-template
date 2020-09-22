@@ -127,6 +127,24 @@ jupyter:
 
 
 
+#### Agent Based Model:
+Agent based models attempt to simulate the real world in a 1:1 ratio. This is done by simulating the actions and interactions of autonomous agents that can be individuals or collectives, while assessing and analysing their effects on the system as a whole. This behaviour is based on their relations with the other agents. 
+Individual agents are characterised as a rational thinker, meaning that they behave as such to optimise their goals using heuristics. One way to interpret this is ecological rationality. This could involve an individual looking over a fence and copying their neighbour if they are doing a task better, or keep doing the same thing while occasionally trying something new. The basic idea is to imitate, exploit and explore. The decisions an individual makes propagates through a complex network of interactions and the surrounding environment.
+To simulate the real-world and complex systems, agent based models simulate the actions and interactions of autonomous agents. These agents may observe their environment, adapt to it and learn new principles that alter their way of thinking. 
+
+#### Schelling’s Segregation Model:
+Schelling’s segregation model is an agent based model created by Thomas Schelling. Schelling wanted a reason as to why people of different races and incomes tend to segregate in most parts of the developed world. It explains how an individual will segregate based on the behaviour of the surrounding agents or neighbours.
+Imagine a NxN checkerboard. Some people (represented by squares) receive a higher salary AP and the others have a lower salary BP where P represents an individual. If I belong to the former category AP and most of my neighbours also belong to AP and hence AP ≥ BP, then I decide to stay. However, if most of my neighbours belong to BP and AP < BP, then I will relocate so that AP ≥ BP.
+Everyone uses this heuristic where someone decides to move or stay depending on the ratio of people who are alike. It should be noted that a micro-motive does not equal macro-behaviour in Schelling’s segregation model.
+
+#### Riot Models (Granovetter Threshold Theory):
+Granovetter’s riot model is utilised in order to measure an individual’s willingness to make a decision based on the decisions of those around them (the rioters). Each person has a threshold and if the number of rioters exceeds that threshold, the person joins in.
+N individuals indexed by i have a riot threshold, T(i) ∈ (0, 1, …, N), i.e T(i) is contained in the set of all possible, real number thresholds including 0; T(i) ∈ {ℝ+0}. Initially, any individual with a riot threshold of zero, T(i)=0, joins the riot. R(t) equals the number of people rioting at time t. Individual i participates at time t if T(i) < R(t-1).
+This model reveals the importance of the entire distribution of thresholds rather than just the mean. It also shows the difficulty of predicting social movements and which ones will be successful.
+An application of this is a group of 5 people deciding whether to wear a mask. If 0 people are wearing it and everyone has a threshold of 1 or more, nothing happens and nobody wears a mask. However, if the threshold order is 0, 1, 1, 2, 2, everyone will end up wearing a mask because the person at the start takes the initiative to wear it.
+
+
+
 ## Explain how each of the three models works (brief) and how it will be applied in your case.
 
 
@@ -155,13 +173,13 @@ Through the use of riot models, with a specific focus on the Granovetter thresho
 Agent based models take into consideration the number of degrees for each individual agent. This is necessary, as the degrees, or the connections, allow the model to measure the amount of interactions that each infected model may have. Also, the individual recovery rate is considered in the agent based model, with the average of 14 days being applied to agents after they have been recognised as infected. 
 
 - Covid agent based model without lockdown being implemented as a preventative measure:
-![](attachment:AgentBasedModel1.JPG)
+![AgentBasedModel1.JPG](attachment:AgentBasedModel1.JPG)
 
 This model is simulating the spread of covid-19 in a group of 100,000 agents over 100 days, assuming that 100 people are initially infected. These individuals are said to have an average of 20 connections, with a 1.4% chance of spreading the virus to those agents. Also, the recovery rate is approximately 14 days after an individual is infected.
 
 
 - Covid agent based model with lockdown being implemented after 15 days of the virus being present in society:
-![](attachment:AgentBasedModel2.JPG)
+![AgentBasedModel2.JPG](attachment:AgentBasedModel2.JPG)
 This model keeps all the same characteristics as the prior model, except after 15 days lockdown was forced upon society, which is said to reduce interactions by 90% and will last 85 days.
 
 
@@ -172,22 +190,22 @@ Covid-19 Demonstration Model. (2020). Retrieved 22 September 2020, from http://c
 #### Schelling’s Segregation Model:
 Using the segregation model provided by NetLogo, we are able to input our own similarity rate to measure the behaviours of individuals when they require X% of individuals around them to have been vaccinated in order to be satisfied.
 - Segregation Model with 0% similarity rate (0% of neighbours must be vaccinated)
-![](attachment:Segregation1.JPG)
+![Segregation1.JPG](ComplexSystemsImages/Segregation1.JPG)
 Individuals are not at all segregated
 
 
 - Segregation Model with 25% similarity rate (25% of neighbours must be vaccinated)
-![](attachment:Segregation2.JPG)
+![Segregation2.JPG](attachment:Segregation2.JPG)
 Individuals are still fairly mixed with non-similar agents, but slightly segregated
 
 
 - Segregation Model with 50% similarity rate (50% of neighbours must be vaccinated)
-![](attachment:Segregation3.JPG)
+![Segregation3.JPG](attachment:Segregation3.JPG)
 Individuals are heavily, but not entirely, segregated
 
 
 - Segregation Model with 75% similarity rate (75% of neighbours must be vaccinated
-![](attachment:Segregation4.JPG)
+![Segregation4.JPG](attachment:Segregation4.JPG)
 Individuals are almost entirely segregated.
 
 Wilensky, U. (1997). NetLogo Segregation model. http://ccl.northwestern.edu/netlogo/models/Segregation. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
