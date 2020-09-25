@@ -276,7 +276,7 @@ This model is simulating the spread of covid-19 in a group of 100,000 agents ove
 This model keeps all the same characteristics as the prior model, except after 15 days, lockdown was forced upon society, which is said to reduce interactions by 90% and will last 85 days.
 
 
-Covid-19 Demonstration Model. (2020). Retrieved 22 September 2020, from http://covidagentmodel.com/
+Covid-19 Demonstration Model. (2020). Retrieved 20 September 2020, from http://covidagentmodel.com/
 <!-- #endregion -->
 
 <!-- #region -->
