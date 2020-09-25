@@ -28,10 +28,13 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region toc-hr-collapsed=false -->
-# Introduction
+# 1. Introduction
 <!-- #endregion -->
 
-## State the problem, why it is important/relevant to you and/or more broadly to society
+## 1.1 State the problem, why it is important/relevant to you and/or more broadly to society
+
+
+
 
 
 
@@ -46,10 +49,10 @@ jupyter:
 
 
 <!-- #region toc-hr-collapsed=false -->
-# Context, background information, justification
+# 2. Context, background information, justification
 <!-- #endregion -->
 
-## Research and review literature, news, digital media, drivers and how the problem is being addressed by academia, industry, government, etc.
+## 2.1 Research and review literature, news, digital media, drivers and how the problem is being addressed by academia, industry, government, etc.
 
 
 ![Rich Picture](Figures/richPicture.png)
@@ -77,7 +80,7 @@ Various other government pages are available for each state and territory which 
 
 
 
-## Identify the system + stakeholders. For this, you will need to construct a “rich picture” that captures the essential elements.
+## 2.2 Identify the system + stakeholders. For this, you will need to construct a “rich picture” that captures the essential elements.
 
 
 
@@ -92,7 +95,24 @@ Various other government pages are available for each state and territory which 
 
 
 
-## Identify current models or prevailing frames that are being used to address the problem
+Agent Based Model- Stakeholders: The Government, Customers, Employees, Media, Trade Unions, Communities, Vendors 
+
+Schelling’s Segregation Model- Stakeholders: The Government, Customers, Employees, Media, Trade Unions, Communities, Vendors 
+
+Riot Models- Stakeholders: The Government, Customers, Employees, Media, Trade Unions, Communities, Vendors 
+
+Each stakeholder affects each system in the same way:
+- The Government- The models that we use will have to comply with government laws and regulations. 
+- Customers- Models will be served to customers needs in order to prevent COVID 19.
+- Employees- The employees that are hired to carry out the actions of the model play a pivotal role on the outcome of the model’s functionality. 
+- Media- The media will play a role in promoting the different models and provide specific information on it. 
+- Trade Unions- Trade Unions will provide a safe and happy work environment with the employees of the trade unions. 
+- Communities- Communities will provide feedback to the models that are used to prevent COVID 19. 
+- Vendors- Companies that construct models will purchase different materials and parts from vendors. 
+
+
+
+## 2.3 Identify current models or prevailing frames that are being used to address the problem
 
 
 
@@ -107,7 +127,7 @@ Various other government pages are available for each state and territory which 
 
 
 
-## Discuss how prevailing models/frames are preventing the problem from being fully addressed or solved
+## 2.4 Discuss how prevailing models/frames are preventing the problem from being fully addressed or solved
 
 
 
@@ -120,12 +140,21 @@ Various other government pages are available for each state and territory which 
 
 
 
+
+
+Current SEIR models are significantly preventing COVID 19 from being fully addressed and solved. SEIR models currently are overly pessimistic, such that they depict the worse effects that COVID 19 can have on individuals (Sun, 2020). By expressing these worse case scenarios depicts an inaccurate depiction of COVID 19 as currently not everyone is facing the worse off effects with many of them experiencing small to mild effects. Another issue that occurs from SEIR models is exponential decay occurs within these models. This negatively portrays the actual number of COVID 19 cases suggesting that COVID cases will never reach 0 cases. In reality this is incorrect because once a vaccine is developed there will be no COVID 19 cases, which is uncorrelated to the SEIR models exponential decay function. 
+
+Sun, K (2020, June 18). SEIR modeling of the COVID-19 and its dynamics. SpringerLink. https://link.springer.com/article/10.1007/s11071-020-05743-y 
+ 
+Big Data models also are other models that are preventing COVID 19 to be fully solved. Big Data Models have the main purpose of suggesting how many cases of COVID 19 per day or all together in a certain country or population. This doesn’t solve the issue of COVID 19 as it only shows the number of cases and does not depict ways in which the pandemic can be dealt with. Also Big Data Models also show an inaccurate number of COVID 19 cases as in many developing countries, several cases go unreported (Lau, 2020). This doesn’t provide a true addressment of the actual number of COVID 19 cases in these countries. This also has a strong negative effect on the analysis of this data as the data analysis will be inaccurate in terms of the characteristics of COVID 19 cases in different countries (Lau, 2020). 
+
+Lau, H (2020, June 22). Internationally lost COVID-19 cases. ScienceDirect. https://www.sciencedirect.com/science/article/pii/S1684118220300736 
 
 <!-- #region toc-hr-collapsed=false -->
-# Conceptual Models
+# 3. Conceptual Models
 <!-- #endregion -->
 
-## Based on your self-study of the supermarket of models, explain the three models that you have chosen to look at the problem
+## 3.1 Based on your self-study of the supermarket of models, explain the three models that you have chosen to look at the problem
 
 
 
@@ -161,7 +190,7 @@ An application of this is a group of 5 people deciding whether to wear a mask. I
 
 
 
-## Explain how each of the three models works (brief) and how it will be applied in your case.
+## 3.2 Explain how each of the three models works (brief) and how it will be applied in your case.
 
 
 #### Agent Based Model:
@@ -182,7 +211,7 @@ Through the use of riot models, with a specific focus on the Granovetter thresho
 
 
 
-## Describe any data sources (real or hypothetical) that are needed to construct the three models. Use illustrative drawings and diagrams where possible
+## 3.3 Describe any data sources (real or hypothetical) that are needed to construct the three models. Use illustrative drawings and diagrams where possible
 
 <!-- #region -->
 #### Agent Based Model:
@@ -198,7 +227,8 @@ This model is simulating the spread of covid-19 in a group of 100,000 agents ove
 - Covid agent based model with lockdown being implemented after 15 days of the virus being present in society:
 
 ![AgentBasedModel2.JPG](ComplexSystemsImages/AgentBasedModel2.JPG)
-This model keeps all the same characteristics as the prior model, except after 15 days lockdown was forced upon society, which is said to reduce interactions by 90% and will last 85 days.
+
+This model keeps all the same characteristics as the prior model, except after 15 days, lockdown was forced upon society, which is said to reduce interactions by 90% and will last 85 days.
 
 
 Covid-19 Demonstration Model. (2020). Retrieved 22 September 2020, from http://covidagentmodel.com/
@@ -245,6 +275,7 @@ In order to use the riot model effectively, we must estimate the thresholds of i
 - Then, for each other individual, the following formula, T(i) >= R(t) is applied. If true, then they will accept the vaccine and R(t) will increase. 
 - Eventually, either everyone will accept the vaccine, or those with extremely high thresholds will never accept the vaccine.
 
+Hence, in order to apply this model, a sample of the population would need to provide their own personal threshold which would result in them accepting the vaccine as a preventative measure to the Covid-19 pandemic.
 
 <!-- #region toc-hr-collapsed=false -->
 # Implementation
