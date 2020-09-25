@@ -16,7 +16,7 @@ jupyter:
 <!-- #region toc-hr-collapsed=false -->
  **41189 Modelling Assignment — Group 6**
  
- Topic: Measuring both the spread of Covid-19 and society’s response to preventative measures to the pandemic
+ Topic: Measuring both the spread of Covid-19 and society’s response to preventative measures to the pandemic in Australia
  
  Group members:
  
