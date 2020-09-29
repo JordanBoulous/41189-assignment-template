@@ -28,10 +28,10 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region toc-hr-collapsed=false -->
-# 1. Introduction
+#  Introduction
 <!-- #endregion -->
 
-## 1.1 State the problem, why it is important/relevant to you and/or more broadly to society
+## State the problem, why it is important/relevant to you and/or more broadly to society
 
 
 
@@ -72,10 +72,10 @@ ABC. 2020. ‘Melbourne Coronavirus restrictions lockdown protests, police.’ h
 <!-- #endregion -->
 
 <!-- #region toc-hr-collapsed=false -->
-# 2. Context, background information, justification
+#  Context, background information, justification
 <!-- #endregion -->
 
-## 2.1 Research and review literature, news, digital media, drivers and how the problem is being addressed by academia, industry, government, etc.
+## Research and review literature, news, digital media, drivers and how the problem is being addressed by academia, industry, government, etc.
 
 
 ![Rich Picture](Figures/richPicture.png)
@@ -103,7 +103,7 @@ Various other government pages are available for each state and territory which 
 
 
 
-## 2.2 Identify the system + stakeholders. For this, you will need to construct a “rich picture” that captures the essential elements.
+##  Identify the system + stakeholders. For this, you will need to construct a “rich picture” that captures the essential elements.
 
 
 
@@ -135,7 +135,7 @@ Each stakeholder affects each system in the same way:
 
 
 
-## 2.3 Identify current models or prevailing frames that are being used to address the problem
+## Identify current models or prevailing frames that are being used to address the problem
 
 
 
@@ -172,7 +172,7 @@ http://umlguide2.uw.hu/ch01lev1sec1.html
 
 <!-- #endregion -->
 
-## 2.4 Discuss how prevailing models/frames are preventing the problem from being fully addressed or solved
+## Discuss how prevailing models/frames are preventing the problem from being fully addressed or solved
 
 
 
@@ -196,10 +196,10 @@ Big Data models also are other models that are preventing COVID 19 to be fully s
 Lau, H (2020, June 22). Internationally lost COVID-19 cases. ScienceDirect. https://www.sciencedirect.com/science/article/pii/S1684118220300736 
 
 <!-- #region toc-hr-collapsed=false -->
-# 3. Conceptual Models
+#  Conceptual Models
 <!-- #endregion -->
 
-## 3.1 Based on your self-study of the supermarket of models, explain the three models that you have chosen to look at the problem
+##  Based on your self-study of the supermarket of models, explain the three models that you have chosen to look at the problem
 
 
 
@@ -235,7 +235,7 @@ An application of this is a group of 5 people deciding whether to wear a mask. I
 
 
 
-## 3.2 Explain how each of the three models works (brief) and how it will be applied in your case.
+##  Explain how each of the three models works (brief) and how it will be applied in your case.
 
 
 #### Agent Based Model:
@@ -256,7 +256,7 @@ Through the use of riot models, with a specific focus on the Granovetter thresho
 
 
 
-## 3.3 Describe any data sources (real or hypothetical) that are needed to construct the three models. Use illustrative drawings and diagrams where possible
+##  Describe any data sources (real or hypothetical) that are needed to construct the three models. Use illustrative drawings and diagrams where possible
 
 <!-- #region -->
 #### Agent Based Model:
@@ -328,13 +328,111 @@ Hence, in order to apply this model, a sample of the population would need to pr
 
 ## Describe the mathematical and/or statistical implementation of your three models. This should be done using Python code.
 
+
+#### Agent Based Modelling
+
 ```python
 
 ```
 
-```python
+#### Schelling’s Segregation Model
 
+```python
+from mesa import Model, Agent
+from mesa.time import RandomActivation
+from mesa.space import SingleGrid
+from mesa.datacollection import DataCollector
+
+
+class SchellingAgent(Agent):
+    """
+    Schelling segregation agent
+    """
+
+    def __init__(self, pos, model, agent_type):
+        """
+         Create a new Schelling agent.
+         Args:
+            unique_id: Unique identifier for the agent.
+            x, y: Agent initial location.
+            agent_type: Indicator for the agent's type (minority=1, majority=0)
+        """
+        super().__init__(pos, model)
+        self.pos = pos
+        self.type = agent_type
+
+    def step(self):
+        similar = 0
+        for neighbor in self.model.grid.neighbor_iter(self.pos):
+            if neighbor.type == self.type:
+                similar += 1
+
+        # If unhappy, move:
+        if similar < self.model.homophily:
+            self.model.grid.move_to_empty(self)
+        else:
+            self.model.happy += 1
+
+
+class Schelling(Model):
+    """
+    Model class for the Schelling segregation model.
+    """
+
+    def __init__(self, height=20, width=20, density=0.8, minority_pc=0.2, homophily=3):
+        """
+        """
+
+        self.height = height
+        self.width = width
+        self.density = density
+        self.minority_pc = minority_pc
+        self.homophily = homophily
+
+        self.schedule = RandomActivation(self)
+        self.grid = SingleGrid(width, height, torus=True)
+
+        self.happy = 0
+        self.datacollector = DataCollector(
+            {"happy": "happy"},  # Model-level count of happy agents
+            # For testing purposes, agent's individual x and y
+            {"x": lambda a: a.pos[0], "y": lambda a: a.pos[1]},
+        )
+
+        # Set up agents
+        # We use a grid iterator that returns
+        # the coordinates of a cell as well as
+        # its contents. (coord_iter)
+        for cell in self.grid.coord_iter():
+            x = cell[1]
+            y = cell[2]
+            if self.random.random() < self.density:
+                if self.random.random() < self.minority_pc:
+                    agent_type = 1
+                else:
+                    agent_type = 0
+
+                agent = SchellingAgent((x, y), self, agent_type)
+                self.grid.position_agent(agent, (x, y))
+                self.schedule.add(agent)
+
+        self.running = True
+        self.datacollector.collect(self)
+
+    def step(self):
+        """
+        Run one step of the model. If All agents are happy, halt the model.
+        """
+        self.happy = 0  # Reset counter of happy agents
+        self.schedule.step()
+        # collect data
+        self.datacollector.collect(self)
+
+        if self.happy == self.schedule.get_agent_count():
+            self.running = False
 ```
+
+#### Riot Model (Granovetter Threshold Theory)
 
 ```python
 
