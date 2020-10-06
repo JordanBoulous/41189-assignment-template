@@ -430,6 +430,9 @@ class Schelling(Model):
 
         if self.happy == self.schedule.get_agent_count():
             self.running = False
+            
+
+
 ```
 
 #### Riot Model (Granovetter Threshold Theory)
@@ -521,6 +524,10 @@ class Schelling(Model):
 ```
 
 ### Group member 4 reflection
+
+```python
+
+```
 
 ```python
 
