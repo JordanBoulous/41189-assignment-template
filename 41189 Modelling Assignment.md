@@ -338,7 +338,7 @@ Hence, in order to apply this model, a sample of the population would need to pr
 #### Schelling’s Segregation Model
 
 ```python
-from mesa import Model, Agent
+from mesa import model
 ```
 
 ```python
@@ -346,6 +346,87 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 from model import Schelling
+```
+
+```python
+model = Schelling(10, 10, 0.8, 0.2, 3)
+```
+
+```python
+while model.running and model.schedule.steps < 100:
+    model.step()
+print(model.schedule.steps)
+```
+
+```python
+model_out = model.datacollector.get_model_vars_dataframe()
+```
+
+```python
+model_out.head()
+```
+
+```python
+model_out.happy.plot()
+```
+
+```python
+x_positions = model.datacollector.get_agent_vars_dataframe()
+```
+
+```python
+x_positions.head()
+```
+
+```python
+from mesa.batchrunner import BatchRunner
+```
+
+```python
+def get_segregation(model):
+    '''
+    Find the % of agents that only have neighbors of their same type.
+    '''
+    segregated_agents = 0
+    for agent in model.schedule.agents:
+        segregated = True
+        for neighbor in model.grid.neighbor_iter(agent.pos):
+            if neighbor.type != agent.type:
+                segregated = False
+                break
+        if segregated:
+            segregated_agents += 1
+    return segregated_agents / model.schedule.get_agent_count()
+```
+
+```python
+fixed_params = {"height": 10, "width": 10, "density": 0.8, "minority_pc": 0.2} 
+variable_parms = {"homophily": range(1,9)}
+```
+
+```python
+model_reporters = {"Segregated_Agents": get_segregation}
+```
+
+```python
+param_sweep = BatchRunner(Schelling,
+                          variable_parameters=variable_parms, fixed_parameters=fixed_params,
+                          iterations=10, 
+                          max_steps=200,
+                          model_reporters=model_reporters)
+```
+
+```python
+param_sweep.run_all()
+```
+
+```python
+df = param_sweep.get_model_vars_dataframe()
+```
+
+```python
+plt.scatter(df.homophily, df.Segregated_Agents)
+plt.grid(True)
 ```
 
 #### Riot Model (Granovetter Threshold Theory)
