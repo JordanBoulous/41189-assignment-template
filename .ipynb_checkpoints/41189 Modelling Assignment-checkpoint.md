@@ -244,6 +244,8 @@ This model is simulating the spread of covid-19 in a group of 100,000 agents ove
 
 This model keeps all the same characteristics as the prior model, except after 15 days, lockdown was forced upon society, which is said to reduce interactions by 90% and will last 85 days.
 
+
+
 <!-- #endregion -->
 
 <!-- #region -->
@@ -276,8 +278,11 @@ Individuals are heavily, but not entirely, segregated
 
 Individuals are almost entirely segregated.
 
+
+
 <!-- #endregion -->
 
+<!-- #region -->
 #### Riot Model (Granovetter Threshold Theory):
 In order to use the riot model effectively, we must estimate the thresholds of individuals in a society. Assuming that the ‘riot’ action is accepting a vaccination as a preventative measure to Covid-19, then there are different hypothetical scenarios which could occur:
 - If a sample of 100 individuals is taken and the lowest threshold of an individual T(i) = 1, then nobody will take the vaccine. 
@@ -286,6 +291,12 @@ In order to use the riot model effectively, we must estimate the thresholds of i
 - Eventually, either everyone will accept the vaccine, or those with extremely high thresholds will never accept the vaccine.
 
 Hence, in order to apply this model, a sample of the population would need to provide their own personal threshold which would result in them accepting the vaccine as a preventative measure to the Covid-19 pandemic.
+
+
+Similarly, the 'riot' action could be identified as wearing a mask. It is safe to assume that the average sample mean of a threshold for wearing a mask would be lower than accepting a vaccine. Hence, the same formula would be applied to understand how many members of the sample population (size 100) would be willing to wear a mask as a preventative measure to the Covid-19 pandemic.
+<!-- #endregion -->
+
+*The above scenarios for each of the chosen models will be explored in greater detail in Section 5.1*
 
 <!-- #region toc-hr-collapsed=false -->
 # Implementation
@@ -406,17 +417,27 @@ plt.grid(True)
 
 ## Establish baseline parameter sets and or configuration for output scenarios
 
-```python
 
-```
+With the evolving and complex nature of the predicament caused by the Covid-19 pandemic, the way in which people interact has drastically altered. This has proven to be a major detriment to many businesses as the changing nature of work has minimised productivity, with people insisting on remaining socially distant. However, with the implementation of the previously discussed models, we are able to estimate how the interaction between individuals can be increased through the form of a lockdown, the wearing of face masks and the release of a vaccine
 
-```python
 
-```
+#### Agent Based Modelling
 
-```python
 
-```
+
+
+
+#### Schelling’s Segregation Model
+
+
+
+
+
+#### Riot Model (Granovetter Threshold Theory)
+
+
+
+
 
 ## Perform a basic sensitivity analysis, i.e., identify with parameters are most sensitive/insensitive for the outputs
 
