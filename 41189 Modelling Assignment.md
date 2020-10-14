@@ -215,7 +215,7 @@ Using the agent based model, we can establish the rates of infection and recover
 
 #### Schelling’s Segregation Model:
 Schelling’s segregation model is used to simulate the way in which individuals naturally segregate based on their personally selected threshold of similarity in the agents surrounding them.
-With the Schelling’s segregation model, we are able to witness the behaviours of different individuals in society during the Covid-19 pandemic, measuring their happiness and comfortability in regards to their neighbours’ willingness to accept vaccines. Hence, we are able to witness the effects of emotional segregation in different communities according to different ‘similarity rates’, which are the percentage of people surrounding individuals that they wish to be vaccinated in order to be satisfied. This is useful in regards to the possible solutions to the Covid-19 pandemic since it can be used to predict the contentment of individuals in a society after a vaccine is released, providing insight into the amount of vaccinations that need to be produced in order to create a general sense of comfort.
+With the Schelling’s segregation model, we are able to witness the behaviours of different individuals in society during the Covid-19 pandemic, measuring their happiness and comfortability in regards to their neighbours’ willingness to accept vaccines or wear a protective face mask. Hence, we are able to witness the effects of emotional segregation in different communities according to different ‘similarity rates’, which are the percentage of people surrounding individuals that they wish to be using a preventative measure in order to be satisfied. This is useful in regards to the possible solutions to the Covid-19 pandemic since it can be used to predict the contentment of individuals in a society after a vaccine is released, providing insight into the amount of vaccinations that need to be produced in order to create a general sense of comfort.
 
 
 
@@ -229,7 +229,7 @@ Through the use of riot models, with a specific focus on the Granovetter thresho
 
 <!-- #region -->
 #### Agent Based Model:
-Agent based models take into consideration the number of degrees for each individual agent. This is necessary, as the degrees, or the connections, allow the model to measure the amount of interactions that each infected model may have. Also, the individual recovery rate is considered in the agent based model, with the average of 14 days being applied to agents after they have been recognised as infected. 
+Agent based models take into consideration the number of degrees for each individual agent. This is necessary, as the degrees, or the connections, allow the model to measure the amount of interactions that each infected model may have. Also, the individual recovery rate is considered in the agent based model, with the average of 14 days being applied to agents after they have been recognised as infected. The following agent based models were generated using (Covid-19 Demonstration Model, 2020).
 
 - Covid agent based model without lockdown being implemented as a preventative measure:
 
@@ -238,7 +238,7 @@ Agent based models take into consideration the number of degrees for each indivi
 This model is simulating the spread of covid-19 in a group of 100,000 agents over 100 days, assuming that 100 people are initially infected. These individuals are said to have an average of 20 connections, with a 1.4% chance of spreading the virus to those agents. Also, the recovery rate is approximately 14 days after an individual is infected.
 
 
-- Covid agent based model with lockdown being implemented after 15 days of the virus being present in society:
+- Covid agent based model with a 90 day lockdown being implemented after 15 days of the virus being present in society:
 
 ![AgentBasedModel2.JPG](ComplexSystemsImages/AgentBasedModel2.JPG)
 
@@ -250,29 +250,16 @@ This model keeps all the same characteristics as the prior model, except after 1
 
 <!-- #region -->
 #### Schelling’s Segregation Model:
-Using the segregation model provided by NetLogo, we are able to input our own similarity rate to measure the behaviours of individuals when they require X% of individuals around them to have been vaccinated in order to be satisfied.
-- Segregation Model with 0% similarity rate (0% of neighbours must be vaccinated)
+Using the segregation model provided by NetLogo (Wilensky, 1997), we are able to input our own similarity rate to measure the behaviours of individuals when they require X% of individuals around them to have been vaccinated or be willing to wear a mask in order to be satisfied.
+- Segregation Model with 0% similarity rate (0% of neighbours must be vaccinated or wearing a mask as a preventative measure)
 
 ![Segregation1.JPG](ComplexSystemsImages/Segregation1.JPG)
 
 Individuals are not at all segregated
 
 
-- Segregation Model with 25% similarity rate (25% of neighbours must be vaccinated)
 
-![Segregation2.JPG](ComplexSystemsImages/Segregation2.JPG)
-
-Individuals are still fairly mixed with non-similar agents, but slightly segregated
-
-
-- Segregation Model with 50% similarity rate (50% of neighbours must be vaccinated)
-
-![Segregation3.JPG](ComplexSystemsImages/Segregation3.JPG)
-
-Individuals are heavily, but not entirely, segregated
-
-
-- Segregation Model with 75% similarity rate (75% of neighbours must be vaccinated
+- Segregation Model with 75% similarity rate (75% of neighbours must be vaccinated or wearing a mask as a preventative measure)
 
 ![Segregation4.JPG](ComplexSystemsImages/Segregation4.JPG)
 
@@ -408,6 +395,9 @@ out.plot()
 
 #### Schelling’s Segregation Model
 
+
+https://github.com/projectmesa/mesa/blob/master/examples/schelling/analysis.ipynb
+
 ```python
 from mesa import model
 ```
@@ -522,11 +512,85 @@ With the evolving and complex nature of the predicament caused by the Covid-19 p
 
 
 
+
+
+<!-- #region -->
+- Covid agent based model without lockdown being implemented as a preventative measure:
+
+![AgentBasedModel1.JPG](ComplexSystemsImages/AgentBasedModel1.JPG)
+
+
+
+
+- Covid agent based model with a 30 day lockdown being implemented after 15 days of the virus being present in society:
+![ABM30Days.JPG](ComplexSystemsImages/ABM30Days.JPG)
+
+
+
+
+- Covid agent based model with a 30 day lockdown being implemented after 50 days of the virus being present in society:
+![ABM30Days2.JPG](ComplexSystemsImages/ABM30Days2.JPG)
+
+
+
+
+- Covid agent based model with a 90 day lockdown being implemented after 15 days of the virus being present in society:
+
+![AgentBasedModel2.JPG](ComplexSystemsImages/AgentBasedModel2.JPG)
+
+
+
+
+
+
+
+
+<!-- #endregion -->
+
 #### Schelling’s Segregation Model
 
 
 
 
+
+Through the implementation of Schelling's Segregation Model, we are able to see the extent to which individuals may go to in order to be comfortable with the neighbours surrounding them in regards to their acceptance of vaccines and face masks as a preventative measure to the Covid-19 pandemic issue. Whilst the segregation models do not track the physical locations of the individuals since people would not be willing to move houses in order to be satisfied with their neighbours' measures to prevent the virus, they are useful to recognise the structure that a society would need to take in order for all members to be completely satisfied.
+
+<!-- #region -->
+- Segregation Model with 0% similarity rate (0% of neighbours must be vaccinated or wearing a mask as a preventative measure)
+
+![Segregation1.JPG](ComplexSystemsImages/Segregation1.JPG)
+
+In this model, there are 2,467 agents who each require 0% similarity in order to be happy. Hence, there is no evident sign of segregation and there are 0 unhappy individuals in the society.
+
+
+- Segregation Model with 25% similarity rate (25% of neighbours must be vaccinated or wearing a mask as a preventative measure)
+
+![Segregation2.JPG](ComplexSystemsImages/Segregation2.JPG)
+
+In this model of 2,484 agents, individuals are still fairly mixed with non-similar agents, but it is noticeable that they are slightly more segregated. However, there are still 0 individuals who are unhappy with their position since their expectations to have 25% of similar individuals around them are satisfied.
+
+
+- Segregation Model with 50% similarity rate (50% of neighbours must be vaccinated or wearing a mask as a preventative measure)
+
+![Segregation3.JPG](ComplexSystemsImages/Segregation3.JPG)
+
+Individuals are heavily, but not entirely, segregated in this model of 2,483 agents. It can be assumed that this is the most likely scenario in the vast majority of societies, with individuals hoping to have half of their neighbours using one of the 2 referenced preventative measures for them to feel safe. In the model, there are still 0 unhappy individuals. 
+
+
+- Segregation Model with 75% similarity rate (75% of neighbours must be vaccinated or wearing a mask as a preventative measure)
+
+![Segregation4.JPG](ComplexSystemsImages/Segregation4.JPG)
+
+In this model of 2,501 agents, individuals are almost entirely segregated. Whilst this scenario is unlikely in most societies, since it is impractical to think that 75% of people will have the same response to the Covid-19 pandemic, this model proves that it is still possible for there to be 0 unhappy individuals. However, it is made evident that this predicament would take a significantly longer time than the previous scenarios since it is vastly more difficult to find similar agents with these potentially unrealistic expectations.
+
+
+- Segregation Model with 100% similarity rate (100% of neighbours must be vaccinated or wearing a mask as a preventative measure)
+
+![Segregation5.JPG](ComplexSystemsImages/Segregation5.JPG) 
+
+This model consists of 2,466 agents where the impossible 100% similarity is expected from the individuals. Whilst the model does not have a definitive result, it runs at a similarity rate of about 50% and the number of unhappy individuals does not seem to go lower than 2,439. Hence, this model only exists to present how implausible it would be for individuals to have a rate of 100% similarity wanted.
+*Note: The squares with an "x" represent an unhappy agent.*
+<!-- #endregion -->
 
 #### Riot Model (Granovetter Threshold Theory)
 
