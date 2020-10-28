@@ -294,6 +294,9 @@ Similarly, the 'riot' action could be identified as wearing a mask. It is safe t
 
 #### Agent Based Modelling
 
+
+https://medium.com/dataseries/understanding-agent-based-model-ae1941f7c9db
+
 ```python
 from mesa import Agent, Model
 from mesa.time import RandomActivation
@@ -396,98 +399,185 @@ out.plot()
 #### Schelling’s Segregation Model
 
 
-https://github.com/projectmesa/mesa/blob/master/examples/schelling/analysis.ipynb
+https://github.com/geraintpalmer/SchellingSegregationModel/blob/master/schelling.ipynb
 
 ```python
-from mesa import model
+%matplotlib inline
 ```
 
 ```python
 import matplotlib.pyplot as plt
-%matplotlib inline
-
-from model import Schelling
+import numpy as np
+import itertools
+import copy
+import matplotlib.gridspec as gridspec
+from matplotlib import colors
+import seaborn as sns
+import networkx as nx
+import tqdm
+plt.style.use('seaborn-whitegrid')
+sns.set_palette('PuOr')
 ```
 
 ```python
-model = Schelling(10, 10, 0.8, 0.2, 3)
+class Agent:
+    def __init__(self, x, y, kind, preference, world):
+        self.x = x
+        self.y = y
+        self.kind = kind
+        self.preference = preference
+        self.world = world
+    
+    def know_neighbours(self):
+        self.neighbours = [self.world.coords[x % self.world.size, y % self.world.size]
+                           for x, y in itertools.product(range(self.x-1, self.x+2),
+                                                         range(self.y-1, self.y+2))]
+    
+    def swap(self, partner):
+        self.kind, partner.kind = partner.kind, self.kind
+    
+    def happiness(self):
+        neighbour_kinds = [n.kind for n in self.neighbours]
+        numsame = neighbour_kinds.count(self.kind)
+        numvacant = neighbour_kinds.count(0)
+        if numvacant == 8:
+            if self.vacant():
+                return 1.0
+            return 0.0
+        return (numsame - 1) / (8 - numvacant)
+    
+    def dissatisfied(self):
+        return self.happiness() < self.preference
+    
+    def vacant(self):
+        return self.kind == 0
 ```
 
 ```python
-while model.running and model.schedule.steps < 100:
-    model.step()
-print(model.schedule.steps)
+class World:
+    def __init__(self, size, kinds, probs, preference):
+        self.size = size
+        self.preference = preference
+        self.coords = self.populate_world(kinds, probs, preference)
+        [a.know_neighbours() for row in self.coords for a in row]
+        self.num_dissatisfied = size ** 2
+        self.num_vacant = sum([a.vacant() for row in self.coords for a in row])
+    
+    def populate_world(self, kinds, probs, preference):
+        return np.array([[Agent(x, y, np.random.choice(kinds, p=probs), preference, self) for y in range(self.size)] for x in range(self.size)])
+    
+    def atlas(self):
+        return np.array([[a.kind for a in row] for row in self.coords])
+    
+    def happiness_distribution(self):
+        return [a.happiness() for row in self.coords for a in row if not a.vacant()]
+    
+    def advance_turn(self):
+        dissatisfied = []
+        vacant = []
+        for row in self.coords:
+            for a in row:
+                if a.vacant():
+                    vacant.append(a)
+                elif a.dissatisfied():
+                    dissatisfied.append(a)
+        self.num_dissatisfied = len(dissatisfied)
+        np.random.shuffle(dissatisfied)
+        np.random.shuffle(vacant)
+        num_swap = min(self.num_dissatisfied, self.num_vacant)
+        for indx in range(num_swap):
+            dissatisfied[indx].swap(vacant[indx])
+    
+    def play(self, threshold=0.01):
+        while self.num_dissatisfied / (self.size ** 2) > threshold:
+            self.advance_turn()
 ```
 
 ```python
-model_out = model.datacollector.get_model_vars_dataframe()
+class WorldArchiving(World):
+    def __init__(self, size, kinds, probs, preference):
+        super(WorldArchiving, self).__init__(size, kinds, probs, preference)
+        self.archived_atlases = []
+    
+    def archive(self):
+        self.archived_atlases.append(copy.deepcopy(self.atlas()))
+
+    def play(self, threshold=0.01):
+        self.archive()
+        while self.num_dissatisfied / (self.size ** 2) > threshold:
+            self.advance_turn()
+            self.archive()
 ```
 
 ```python
-model_out.head()
+def plot_atlas(w, turn):
+    num_turns = len(w.archived_atlases)
+    cmap = colors.ListedColormap(['white', '#FFCC1A', '#630081'])
+    fig, ax = plt.subplots(1, figsize=(11, 11))
+    ax.pcolor(w.archived_atlases[turn], cmap=cmap)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    plt.tight_layout()
+    fig.savefig('atlas_' + str(turn))
 ```
 
 ```python
-model_out.happy.plot()
+def number_connected_components(w):
+    temp = np.matrix(copy.deepcopy(w.atlas()))
+    nodes = ['(' + str(x) + ', ' + str(y) + ')' for x in range(w.size) for y in range(w.size) if temp[x, y] != 0]
+    G = nx.Graph()
+    G.add_nodes_from(nodes)
+    for x in range(w.size):
+        for y in range(w.size):
+            if temp[(x+1) % w.size, y] != 0 and temp[x, y] != 0:
+                if temp[(x+1) % w.size, y] == temp[x, y]:
+                    G.add_edge('(' + str(x) + ', ' + str(y) + ')', '(' + str((x+1) % w.size) + ', ' + str(y) + ')')
+            if temp[x, (y+1) % w.size] != 0 and temp[x, y] != 0:
+                if temp[x, (y+1) % w.size] == temp[x, y]:
+                    G.add_edge('(' + str(x) + ', ' + str(y) + ')', '(' + str(x) + ', ' + str((y+1) % w.size) + ')')
+    return nx.number_connected_components(G)
 ```
 
 ```python
-x_positions = model.datacollector.get_agent_vars_dataframe()
+num_trials = 10
 ```
 
 ```python
-x_positions.head()
+np.random.seed(0)
+worlds = {str(round(pref, 4)): [World(40, [0, 1, 2], [0.1, 0.45, 0.45], pref) for trial in range(num_trials)] for pref in [i*0.01 for i in range(76)]}
 ```
 
 ```python
-from mesa.batchrunner import BatchRunner
+for k, trial in tqdm.tqdm(list(itertools.product(worlds, range(num_trials)))):
+    worlds[k][trial].play(threshold=0.00005)
 ```
 
 ```python
-def get_segregation(model):
-    '''
-    Find the % of agents that only have neighbors of their same type.
-    '''
-    segregated_agents = 0
-    for agent in model.schedule.agents:
-        segregated = True
-        for neighbor in model.grid.neighbor_iter(agent.pos):
-            if neighbor.type != agent.type:
-                segregated = False
-                break
-        if segregated:
-            segregated_agents += 1
-    return segregated_agents / model.schedule.get_agent_count()
+nrows = 3
+ncols = 4
+cmap = colors.ListedColormap(['white', '#FFCC1A', '#630081'])
+fig, axarr = plt.subplots(nrows=nrows, ncols=ncols, figsize=(22, 18))
+for i, k in enumerate(['0.2', '0.25', '0.3', '0.35', '0.4', '0.45', '0.5', '0.55', '0.6', '0.65', '0.7', '0.75',]):
+    axarr[i // ncols, i % ncols].pcolor(worlds[k][0].atlas(), cmap=cmap)
+    axarr[i // ncols, i % ncols].set_xticks([])
+    axarr[i // ncols, i % ncols].set_yticks([])
+    axarr[i // ncols, i % ncols].set_title('Preference = ' + str(k), fontsize=34)
+plt.tight_layout()
+fig.savefig('increase_preference')
 ```
 
 ```python
-fixed_params = {"height": 10, "width": 10, "density": 0.8, "minority_pc": 0.2} 
-variable_parms = {"homophily": range(1,9)}
-```
-
-```python
-model_reporters = {"Segregated_Agents": get_segregation}
-```
-
-```python
-param_sweep = BatchRunner(Schelling,
-                          variable_parameters=variable_parms, fixed_parameters=fixed_params,
-                          iterations=10, 
-                          max_steps=200,
-                          model_reporters=model_reporters)
-```
-
-```python
-param_sweep.run_all()
-```
-
-```python
-df = param_sweep.get_model_vars_dataframe()
-```
-
-```python
-plt.scatter(df.homophily, df.Segregated_Agents)
-plt.grid(True)
+nrows = 4
+ncols = 3
+cmap = colors.ListedColormap(['white', '#FFCC1A', '#630081'])
+fig, axarr = plt.subplots(nrows=nrows, ncols=ncols, figsize=(16, 24))
+for i, k in enumerate(['0.2', '0.25', '0.3', '0.35', '0.4', '0.45', '0.5', '0.55', '0.6', '0.65', '0.7', '0.75',]):
+    axarr[i // ncols, i % ncols].pcolor(worlds[k][0].atlas(), cmap=cmap)
+    axarr[i // ncols, i % ncols].set_xticks([])
+    axarr[i // ncols, i % ncols].set_yticks([])
+    axarr[i // ncols, i % ncols].set_title('Dewis = ' + str(k), fontsize=34)
+plt.tight_layout()
+fig.savefig('increase_preference_cy')
 ```
 
 #### Riot Model (Granovetter Threshold Theory)
