@@ -1,17 +1,3 @@
----
-jupyter:
-  jupytext:
-    formats: ipynb,md
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.2'
-      jupytext_version: 1.6.0
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
----
 
 <!-- #region toc-hr-collapsed=false -->
  **41189 Modelling Assignment — Group 6**
