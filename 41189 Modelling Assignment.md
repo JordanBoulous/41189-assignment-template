@@ -382,8 +382,8 @@ class News_Model(Model):
 
 ```python
 '''Run the model '''
-model = News_Model(1000, 50, 50)
-for i in range(1000):
+model = News_Model(100, 50, 50)
+for i in range(100):
     model.step()
 
 #let's inspect the results:
