@@ -294,12 +294,17 @@ Similarly, the 'riot' action could be identified as wearing a mask. It is safe t
 
 #### Agent Based Modelling
 
+
+https://medium.com/dataseries/understanding-agent-based-model-ae1941f7c9db
+
 ```python
 from mesa import Agent, Model
 from mesa.time import RandomActivation
 from mesa.datacollection import DataCollector
 from mesa.space import MultiGrid
+
 from mesa.batchrunner import BatchRunner
+
 import random
 import numpy as np
 import sys
@@ -330,20 +335,26 @@ class Agent(Agent):
             include_center=False)
         new_position = self.random.choice(possible_steps)
         self.model.grid.move_agent(self, new_position)
+        
 def step(self):
         self.move()
+        self.spread_news()
 ```
 
 ```python
-#let's define a function which is able to count, at each step, how #many agents are aware of the product
+#let's define a function which is able to count, at each step, how 
+#many agents are aware of the product
+
 def compute_informed(model):
     return  sum([1 for a in model.schedule.agents if a.infected == 1])
+
 class News_Model(Model):
     def __init__(self, N, width, height):
         self.num_agents = N
         self.grid = MultiGrid(width, height, True)
         self.schedule = RandomActivation(self)
         self.running = True
+        
 # Create agents
         for i in range(self.num_agents):
             a = Agent(i, self)
@@ -354,9 +365,11 @@ class News_Model(Model):
             l = [1,2,3,4,5]
             if i in l: #only one agent is informed
                 a.infected = 1
+                
 self.datacollector = DataCollector(
             model_reporters = {"Tot informed": compute_informed},
             agent_reporters={"Infected": "infected"})
+
 def step(self):
         self.datacollector.collect(self)
         self.schedule.step()
@@ -366,6 +379,7 @@ def step(self):
 model = News_Model(100, 50, 50)
 for i in range(100):
     model.step()
+    
 out = model.datacollector.get_agent_vars_dataframe().groupby('Step').sum()
 out
 ```
@@ -373,9 +387,6 @@ out
 ```python
 out.plot()
 ```
-
-https://medium.com/dataseries/understanding-agent-based-model-ae1941f7c9db
-
 
 #### Schelling’s Segregation Model
 
@@ -547,20 +558,6 @@ plt.tight_layout()
 fig.savefig('increase_preference')
 ```
 
-```python
-nrows = 4
-ncols = 3
-cmap = colors.ListedColormap(['white', '#FFCC1A', '#630081'])
-fig, axarr = plt.subplots(nrows=nrows, ncols=ncols, figsize=(16, 24))
-for i, k in enumerate(['0.2', '0.25', '0.3', '0.35', '0.4', '0.45', '0.5', '0.55', '0.6', '0.65', '0.7', '0.75',]):
-    axarr[i // ncols, i % ncols].pcolor(worlds[k][0].atlas(), cmap=cmap)
-    axarr[i // ncols, i % ncols].set_xticks([])
-    axarr[i // ncols, i % ncols].set_yticks([])
-    axarr[i // ncols, i % ncols].set_title('Dewis = ' + str(k), fontsize=34)
-plt.tight_layout()
-fig.savefig('increase_preference_cy')
-```
-
 #### Riot Model (Granovetter Threshold Theory)
 
 ```python
@@ -716,29 +713,25 @@ This model consists of 2,466 agents where the impossible 100% similarity is expe
 - If you are faced with dealing with a real-world problem and need to do some modelling, how would you determine which modelling approach to take. Justify your response.
 
 
-### Group member 1 reflection
+### Jordan Boulous reflection
 
 ```python
 
 ```
 
-### Group member 2 reflection
+### Alex Rebello reflection
 
 ```python
 
 ```
 
-### Group member 3 reflection
+### Cameron Solomon reflection
 
 ```python
 
 ```
 
-### Group member 4 reflection
-
-```python
-
-```
+### Raymond Lam reflection
 
 ```python
 
