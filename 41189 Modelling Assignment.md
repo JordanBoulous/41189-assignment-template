@@ -294,19 +294,12 @@ Similarly, the 'riot' action could be identified as wearing a mask. It is safe t
 
 #### Agent Based Modelling
 
-
-https://medium.com/dataseries/understanding-agent-based-model-ae1941f7c9db
-
 ```python
 from mesa import Agent, Model
 from mesa.time import RandomActivation
 from mesa.datacollection import DataCollector
- #to collect features during the #simulation
 from mesa.space import MultiGrid
- #to generate the environment
-
-
-#for computation and visualization purpose
+from mesa.batchrunner import BatchRunner
 import random
 import numpy as np
 import sys
@@ -337,29 +330,21 @@ class Agent(Agent):
             include_center=False)
         new_position = self.random.choice(possible_steps)
         self.model.grid.move_agent(self, new_position)
-
-    def step(self):
+def step(self):
         self.move()
-        self.spread_news()
 ```
 
 ```python
-#let's define a function which is able to count, at each step, how many agents 
-#are aware of the product. 
-
+#let's define a function which is able to count, at each step, how #many agents are aware of the product
 def compute_informed(model):
     return  sum([1 for a in model.schedule.agents if a.infected == 1])
-
-#now let's define the model
-
 class News_Model(Model):
     def __init__(self, N, width, height):
         self.num_agents = N
         self.grid = MultiGrid(width, height, True)
         self.schedule = RandomActivation(self)
-        self.running = True 
-
-        # Create agents
+        self.running = True
+# Create agents
         for i in range(self.num_agents):
             a = Agent(i, self)
             self.schedule.add(a)
@@ -367,26 +352,20 @@ class News_Model(Model):
             y = self.random.randrange(self.grid.height)
             self.grid.place_agent(a, (x, y))
             l = [1,2,3,4,5]
- #5 agents are aware of the product
-            if i in l: #only agents with id in the list are aware of the product
+            if i in l: #only one agent is informed
                 a.infected = 1
-
-        self.datacollector = DataCollector(
+self.datacollector = DataCollector(
             model_reporters = {"Tot informed": compute_informed},
             agent_reporters={"Infected": "infected"})
-
-    def step(self):
+def step(self):
         self.datacollector.collect(self)
         self.schedule.step()
 ```
 
 ```python
-'''Run the model '''
 model = News_Model(100, 50, 50)
 for i in range(100):
     model.step()
-
-#let's inspect the results:
 out = model.datacollector.get_agent_vars_dataframe().groupby('Step').sum()
 out
 ```
@@ -394,6 +373,9 @@ out
 ```python
 out.plot()
 ```
+
+https://medium.com/dataseries/understanding-agent-based-model-ae1941f7c9db
+
 
 #### Schelling’s Segregation Model
 
