@@ -398,9 +398,6 @@ out.plot()
 #### Schelling’s Segregation Model
 
 
-http://www.geraintianpalmer.org.uk/2017/08/19/schelling-segregation/
-
-
 https://github.com/geraintpalmer/SchellingSegregationModel/blob/master/schelling.ipynb
 
 ```python
