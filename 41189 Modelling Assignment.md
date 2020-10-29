@@ -319,16 +319,16 @@ class Agent(Agent):
     """ An agent with fixed initial wealth."""
     def __init__(self, unique_id, model):
         super().__init__(unique_id, model)
-        self.knowledge = 0
+        self.infected = 0
         
     def spread_news(self):
-        if self.knowledge == 0:
+        if self.infected == 0:
             return
         neighbors = self.model.grid.get_neighbors(self.pos,moore = True, include_center=True)
         neig_agents = [a for n in neighbors  for a in self.model.grid.get_cell_list_contents(n.pos)]
         for a in neig_agents:
-            if random.random()<0.3:
-                a.knowledge = 1
+            if random.random()<0.014:
+                a.infected = 1
     
     def move(self):
         possible_steps = self.model.grid.get_neighborhood(
@@ -348,7 +348,7 @@ class Agent(Agent):
 #are aware of the product. 
 
 def compute_informed(model):
-    return  sum([1 for a in model.schedule.agents if a.knowledge == 1])
+    return  sum([1 for a in model.schedule.agents if a.infected == 1])
 
 #now let's define the model
 
@@ -369,22 +369,21 @@ class News_Model(Model):
             l = [1,2,3,4,5]
  #5 agents are aware of the product
             if i in l: #only agents with id in the list are aware of the product
-                a.knowledge = 1
+                a.infected = 1
 
         self.datacollector = DataCollector(
             model_reporters = {"Tot informed": compute_informed},
-            agent_reporters={"Knowledge": "knowledge"})
+            agent_reporters={"Infected": "infected"})
 
     def step(self):
         self.datacollector.collect(self)
         self.schedule.step()
-
 ```
 
 ```python
 '''Run the model '''
-model = News_Model(100, 50, 50)
-for i in range(100):
+model = News_Model(1000, 50, 50)
+for i in range(1000):
     model.step()
 
 #let's inspect the results:
