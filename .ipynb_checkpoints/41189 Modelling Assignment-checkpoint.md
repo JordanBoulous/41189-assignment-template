@@ -366,7 +366,7 @@ class News_Model(Model):
             if i in l: #only one agent is informed
                 a.infected = 1
                 
-self.datacollector = DataCollector(
+        self.datacollector = DataCollector(
             model_reporters = {"Tot informed": compute_informed},
             agent_reporters={"Infected": "infected"})
 
