@@ -70,14 +70,16 @@ Finally, this report aims to outline the eventual distribution of vaccines. A Co
 
 
 
-This article gives a detailed description of COVID-19 and includes details about the original outbreak in Wuhan, forms of transmission, virion structure, physicochemical properties, replication, methods of diagnosis, treatment and precautions to prevent spread. The contents of the text are complete, clearly documented and use a variety of different resources to ensure accuracy. It also used very recent information that was available and despite being released in July, the article is still relevant in September. The authors study pharmacy, biomedical science and life science - so there may be some vested interest and bias due to the authors studying similar courses.
+This article [5] gives a detailed description of COVID-19 and includes details about the original outbreak in Wuhan, forms of transmission, virion structure, physicochemical properties, replication, methods of diagnosis, treatment and precautions to prevent spread. The contents of the text are complete, clearly documented and use a variety of different resources to ensure accuracy. It also used very recent information that was available and despite being released in July, the article is still relevant in September. The authors study pharmacy, biomedical science and life science - so there may be some vested interest and bias due to the authors studying similar courses.
 The article states that person-to-person transmission is likely for COVID-19 and is primarily spread through direct contact and droplets from a cough or sneeze. However, it was also found in stool samples, the gastrointestinal tract, saliva and urine. It also states that the SARS-CoV-2 (COVID-19) virion is spherical with a diameter of 80-120nm, contains a non-segmented, positive-sense RNA genome and contains numerous glycoproteins. Diagnosis and testing involves a swab and is often performed when a patient experiences fever, a sore throat, dry cough, dyspnea or they were in contact with a recent confirmed case.
 Preventative measures include wearing face masks and other personal protective equipment (gloves), good hand hygiene, social distancing, isolation and quarantine. Rapid diagnosis, vaccines and therapeutics are critical in managing the COVID-19 pandemic.
 
 
 
 
-This news page from the Australian Government explains what COVID-19 is, symptoms and what to do if you have them, how it spreads, at risk demographics, preventative measures, how to get tested and the post-testing process. As it is written by the government, the information is complete, accurate and comes from a reliable source. The page and the pages for the individual states are constantly being updated as the situation progresses.
+
+
+This news page [6] from the Australian Government explains what COVID-19 is, symptoms and what to do if you have them, how it spreads, at risk demographics, preventative measures, how to get tested and the post-testing process. As it is written by the government, the information is complete, accurate and comes from a reliable source. The page and the pages for the individual states are constantly being updated as the situation progresses.
 The page also examines the symptoms of COVID-19 as the previous article did, although this is in a more concise manner. It explains how the seriousness of COVID-19 can range from a mild illness to pneumonia and how some recover quicker than others. It lists the same symptoms as the article (fever, cough, shortness of breath, sore throat) as well as uncommon symptoms. If an individual experiences any of these symptoms, they are advised to get tested and contact the ‘Coronavirus Helpline’ which provides 24/7 support. It is important to isolate after getting tested. The demographics most at risk according to the page are travellers who have recently been overseas, those who have been in contact with someone with COVID-19, people in correctional facilities and people in group residential settings. If an individual has been overseas, they must isolate for 14 days and testing is important. Those most at risk of serious illness include older people and people with compromised immune systems, disabilities or chronic conditions. The page also covers the same preventative measures as the article as well as avoiding public gatherings, and give links to explain how each measure is effective. Many places of academia and businesses apply these preventative measures to prevent the spread of COVID-19. 
 Various other government pages are available for each state and territory which discuss the different preventative measures and management of COVID-19. One of these include ‘Financial assistance for businesses’ on the NSW page as many businesses are struggling financially due to people isolating.
 
@@ -560,8 +562,45 @@ fig.savefig('increase_preference')
 
 #### Riot Model (Granovetter Threshold Theory)
 
-```python
 
+https://ndlib.readthedocs.io/en/latest/reference/models/epidemics/Threshold.html#example
+
+```python
+import networkx as nx
+import ndlib.models.ModelConfig as mc
+import ndlib.models.epidemics as ep
+```
+
+```python
+# Network topology
+g = nx.erdos_renyi_graph(1000, 0.1)
+```
+
+```python
+# Model selection
+model = ep.ThresholdModel(g)
+```
+
+```python
+# Model Configuration
+config = mc.Configuration()
+config.add_model_parameter('fraction_infected', 0.1)
+```
+
+```python
+# Setting node parameters
+threshold = 0.25
+for i in g.nodes():
+    config.add_node_configuration("threshold", i, threshold)
+```
+
+```python
+model.set_initial_status(config)
+```
+
+```python
+# Simulation execution
+iterations = model.iteration_bunch(200)
 ```
 
 <!-- #region toc-hr-collapsed=false -->
@@ -740,57 +779,43 @@ This model consists of 2,466 agents where the impossible 100% similarity is expe
 # References
 
 
-ABC. 2020. ‘Melbourne Coronavirus restrictions lockdown protests, police.’ https://www.abc.net.au/news/2020-09-05/melbourne-coronavirus-restrictions-lockdown-protests-police/12633164
+[1] - Clure, E., Paul, M. & ABC Staff. (2020). ‘Anti-lockdown coronavirus protesters arrested in Melbourne, solidarity rallies held across Australia’, ABC. https://www.abc.net.au/news/2020-09-05/melbourne-coronavirus-restrictions-lockdown-protests-police/12633164
 
-ABC. 2020. ‘Victoria Coronavirus lockdown’ https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
+[2] - Grattan, M. & ABC Staff. (2020). ‘COVID-19 divides the nation and isolates MPs from Victoria’, ABC. https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
 
-ABS. 2020. ‘Employment and Unemployment Statistics’ https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release
+[3] - Australian Bureau of Statistics. (2020). ‘Employment and Unemployment Statistics’, ABS. https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release
 
-ABS. 2020. ‘People and Communities, Household impacts of Covid-19 Survery’ https://www.abs.gov.au/statistics/people/people-and-communities/household-impacts-covid-19-survey/latest-release
+[4] - Australian Bureau of Statistics. (2020). ‘People and Communities, Household impacts of Covid-19 Survey’, ABS. https://www.abs.gov.au/statistics/people/people-and-communities/household-impacts-covid-19-survey/latest-release
 
-Archana, C., Pavan, J. & Satish, S. 2020. ‘COVID 19: Outbreak, Structure, and Current Therapeutic Strategies.’, Sakun Publishing House, vol. 11, no. 7, pp. 6825-6835. http://web.b.ebscohost.com.ezproxy.lib.uts.edu.au/ehost/pdfviewer/pdfviewer?vid=1&sid=5681bd2d-ac79-472a-8acc-63536f582b70%40sessionmgr101 
+[5] - Archana, C., Pavan, J. & Satish, S. (2020). ‘COVID 19: Outbreak, Structure, and Current Therapeutic Strategies.’, Sakun Publishing House, vol. 11, issue 7, pp. 6825-6835. http://web.b.ebscohost.com.ezproxy.lib.uts.edu.au/ehost/pdfviewer/pdfviewer?vid=1&sid=5681bd2d-ac79-472a-8acc-63536f582b70%40sessionmgr101
 
-Australian Government, 2020. ‘What you need to know about coronavirus (COVID-19)’, Department of Health.https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19 
+[6] - Australian Government. (2020). ‘What you need to know about coronavirus (COVID-19)’, Department of Health. https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19
 
-COVID-19 CORONAVIRUS PANDEMIC. (2020). Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
+[7] - Worldometer. (2020). ‘COVID-19 CORONAVIRUS PANDEMIC’, Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
 
-Covid-19 Demonstration Model. (2020). Retrieved 20 September 2020, from http://covidagentmodel.com/
+[8] - Crabme Pty Ltd. (2020). ‘COVID-19 Demonstration Model’, Retrieved 20 September 2020, from http://covidagentmodel.com/
 
-Fields, C. E., & Timmes, F. X. (2015-). MESA-Web. Retrieved from http://mesa-web.asu.edu
+[9] - Fields, C., Koehler, B. & Timmes, F. (2015-). ‘MESA-Web’, Retrieved from http://mesa-web.asu.edu
 
-Health Gov. 2020. ‘Immunisation and Vaccines’ https://www.health.gov.au/health-topics/immunisation/about-immunisation/how-does-immunisation-work#:~:text=Vaccines%20strengthen%20your%20immune%20system&text=Vaccines%20use%20dead%20or%20severely,protect%20you%20against%20future%20infection.
+[10] - Australian Government. (2020). ‘How does immunisation work?’, Department of Health. https://www.health.gov.au/health-topics/immunisation/about-immunisation/how-does-immunisation-work#:~:text=Vaccines%20strengthen%20your%20immune%20system&text=Vaccines%20use%20dead%20or%20severely,protect%20you%20against%20future%20infection
 
-IPSOS. 2020. ‘Australias say they would get vaccainted for Covid-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
+[11] - Ipsos. (2020). ‘9 in 10 Australians say they would get vaccinated for COVID-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
 
-James J. 2020. https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
+[12] - Jansson, J. (2020). ‘COVID-19 modelling is wrong - Compartmental models underestimate our ability to control the epidemic’ https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
 
-James L. PWC. 2020. ‘Economic Consequences as a result of COVID19’ pp 2-10 https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
+[13] - Loughridge, J., Thorpe, J. & Picton, M. (2020). ‘Economic consequences as a result of COVID-19’, PwC, pp 2-10. https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
 
-LANCET. 2020. Talha B. ‘The online anti-vaccine movement in the age of COVID-19’  VOL 2, ISSUE 10, E504-E505 https://www.thelancet.com/journals/landig/article/PIIS2589-7500(20)30227-2/fulltext
+[14] - Burki, T. (2020). ‘The online anti-vaccine movement in the age of COVID-19’, THE LANCET, vol. 2, issue 10, E504-E505. https://www.thelancet.com/journals/landig/article/PIIS2589-7500(20)30227-2/fulltext
 
-Lau, H (2020, June 22). Internationally lost COVID-19 cases. ScienceDirect. https://www.sciencedirect.com/science/article/pii/S1684118220300736 
+[15] - Lau, H., Khosrawipour, V., Kocbach, P., Mikolajczyk, A., Ichii, H., Schubert, J., Bania, J. & Khosrawipour, T. (2020, June 22). ‘Internationally lost COVID-19 cases’, ScienceDirect, vol. 53, issue 3, pp. 454-458. https://www.sciencedirect.com/science/article/pii/S1684118220300736
 
-Ryan C. 2020. ‘Tensions flare at LA Civic Center over coronavirus stay-home orders’ https://www.dailynews.com/2020/05/01/la-city-hall-protestors-plan-to-decry-coronavirus-stay-home-order/
+[16] - Carter, R., Chou, E. & Singgih, P. (2020). ‘Tensions flare at LA Civic Center over coronavirus stay-home orders’, Daily News. https://www.dailynews.com/2020/05/01/la-city-hall-protestors-plan-to-decry-coronavirus-stay-home-order/
 
-Sun, K (2020, June 18). SEIR modeling of the COVID-19 and its dynamics. SpringerLink. https://link.springer.com/article/10.1007/s11071-020-05743-y 
+[17] - He, S., Peng, Y. & Sun, K. (2020, June 18). ‘SEIR modeling of the COVID-19 and its dynamics’ SpringerLink, pp. 1667-1680.  https://link.springer.com/article/10.1007/s11071-020-05743-y
 
-The Hon Scott Morrison MP. 2020. ‘Australia secures onshore manufacturing agreements for Covid-19 Vaccines’ https://www.pm.gov.au/media/australia-secures-onshore-manufacturing-agreements-two-covid-19-vaccines
+[18] - The Hon Scott Morrison MP. (2020). ‘Australia secures onshore manufacturing agreements for two COVID-19 vaccines’. https://www.pm.gov.au/media/australia-secures-onshore-manufacturing-agreements-two-covid-19-vaccines
 
-UML. 2013. ‘The Importance of Modelling’ 
-http://umlguide2.uw.hu/ch01lev1sec1.html
+[19] - UML. (2013). ‘The Importance of Modelling’, http://umlguide2.uw.hu/ch01lev1sec1.html
 
-Wilensky, U. (1997). NetLogo Segregation model. http://ccl.northwestern.edu/netlogo/models/Segregation. Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
-
-
-
-
-
-
-
-
-
-
-
-
-
+[20] - Wilensky, U. (1997). ‘NetLogo Segregation model’, Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. http://ccl.northwestern.edu/netlogo/models/Segregation
 
