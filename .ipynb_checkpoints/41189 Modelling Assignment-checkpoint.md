@@ -745,36 +745,49 @@ This model consists of 2,466 agents where the impossible 100% similarity is expe
 
 ## Each student should discuss their experiences about working on the project. The document should be no more than 1000 words per group member. It should discuss following key aspects:
 
-- Your contribution in the project
-- Other group members’ contributions
-- What positives do you take from this project? What did you learn from this project?
-- What challenges did you face in this project and how you overcame those?
-- If you are faced with dealing with a real-world problem and need to do some modelling, how would you determine which modelling approach to take. Justify your response.
+i) Your contribution in the project
+
+ii) Other group members’ contributions
+
+iii) What positives do you take from this project? What did you learn from this project?
+
+iv) What challenges did you face in this project and how you overcame those?
+
+v) If you are faced with dealing with a real-world problem and need to do some modelling, how would you determine which modelling approach to take. Justify your response.	
 
 
 ### Jordan Boulous reflection
 
-```python
 
-```
+i) The sections that I contributed towards with this group reported consisted of writing the responses to 3.2, 3.3 and 5.1, as well as assisting with the finding and implementation of the code for section 4. I was also designated as the group member to implement all of our work onto Jupyter Notebook and push the commits to our GitHub repository.  When reflecting on the work that I contributed towards the project, I am able to acknowledge the difficulties that I experienced during the duration of the task, especially with the platforms that I had previously been entirely unfamiliar with that I had to use in order to complete the report. However, I am also proud of my overall contribution due to the hours that I put into researching and completing my sections to what I believe to be at a high quality.
+
+ii) In regards to the contributions of the other group members, I believe that they each put considerable effort into their given tasks and were ultimately successful in collaborating with each other and myself regardless of the limitations due to the at-home learning environment as a result of the Covid-19 pandemic. Each of the members evidently dedicated significant amounts of time towards the task which was made evident through their constant updates of their sections, as well as constantly asking questions on how they can better their sections.
+
+iii) The most apparent positive which I can take from this project is the notion of many model thinking. The fact that multiple models can be applied to one problem to accentuate the multiple facets of the issue, resulting in more varied and successful solutions is a concept that will prove to be vital in essentially all aspects of business. Another major benefit of this project is getting used to GitHub, not only as a tool to create repositories, but also to find existing working models which I can adapt to fit practically any desired task. 
+
+iv) Upon reflecting on the group’s approach to the report, it is made evident that we were forced to deal with multiple issues, mostly arising as a result of our inexperience with Python, GitHub and Jupyter Notebook. The first major issue came with installing the necessary extensions to use Jupyter Notebook in addition to GitHub. Initially, Alex attempted to do this, although after running into a few difficulties with the process, I attempted to do so and after a bit of research on how to do so, I was able to successfully install the required extensions. It was from here that I was able to learn how to push changes to the GitHub repository which allowed us to complete the report in the manner that was required. Another significant problem arose when completing the implementation section of the report, which we found difficult primarily due to the fact that none of us has had any experience with Python. However, with the help of Juan, we were able to understand what exactly was required of us, and how we were simply meant to find existing code for working models and adapt that code to fit our problem, as opposed to writing the models from scratch. This made the section a lot easier to follow and we were able to find appropriate code for our selected problem.
+
+v) When deciding on the models to use for a selected problem, you must consider the involved agents before you can select a model. For example, if the model relates to understanding a person’s, or group of people’s, behavioural characteristics, than it would be necessary to implement a model which explains why people make certain decisions, such as a signalling model or a networking model to understand how information is exchanged between the agents and influences their decision making abilities. Similarly, if the focus of the problem is related to statistics and the analysis of data, then distribution models would be considered. This is made evident through our selection of models since we established that the preventative measures to the Covid-19 pandemic have different effects on different people, and in order to measure their satisfaction or tolerance of a certain solution to the virus, we implemented the segregation and riot models, to understand how they would respond to the measures. Also, the agent based model was implemented in order to measure the success of a lockdown, which is suitable since it is a 1-1 model of reality, which makes it appropriate for this specific problem.
+
+
 
 ### Alex Rebello reflection
 
-```python
 
-```
+i)
+
 
 ### Cameron Solomon reflection
 
-```python
 
-```
+i)
+
 
 ### Raymond Lam reflection
 
-```python
 
-```
+i)
+
 
 # References
 
