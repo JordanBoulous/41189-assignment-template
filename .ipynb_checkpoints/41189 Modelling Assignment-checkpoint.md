@@ -338,7 +338,7 @@ class Agent(Agent):
         new_position = self.random.choice(possible_steps)
         self.model.grid.move_agent(self, new_position)
         
-def step(self):
+    def step(self):
         self.move()
         self.spread_news()
 ```
@@ -371,8 +371,8 @@ class News_Model(Model):
         self.datacollector = DataCollector(
             model_reporters = {"Tot informed": compute_informed},
             agent_reporters={"Infected": "infected"})
-
-def step(self):
+        
+    def step(self):
         self.datacollector.collect(self)
         self.schedule.step()
 ```
@@ -381,7 +381,6 @@ def step(self):
 model = News_Model(100, 50, 50)
 for i in range(100):
     model.step()
-    
 out = model.datacollector.get_agent_vars_dataframe().groupby('Step').sum()
 out
 ```
@@ -567,40 +566,42 @@ https://ndlib.readthedocs.io/en/latest/reference/models/epidemics/Threshold.html
 
 ```python
 import networkx as nx
+from bokeh.io import show
 import ndlib.models.ModelConfig as mc
 import ndlib.models.epidemics as ep
+from ndlib.viz.bokeh.DiffusionTrend import DiffusionTrend
 ```
 
 ```python
-# Network topology
-g = nx.erdos_renyi_graph(1000, 0.1)
+# Network Topology
+g = nx.erdos_renayi_graph(1000,0.1)
 ```
 
 ```python
 # Model selection
-model = ep.ThresholdModel(g)
+model = ep.SIRModel(g)
 ```
 
 ```python
 # Model Configuration
-config = mc.Configuration()
-config.add_model_parameter('fraction_infected', 0.1)
-```
-
-```python
-# Setting node parameters
-threshold = 0.25
-for i in g.nodes():
-    config.add_node_configuration("threshold", i, threshold)
-```
-
-```python
-model.set_initial_status(config)
+cfg = mc.Configuration()
+cfg.add_model_parameter('beta', 0.001)
+cfg.add_model_parameter('gamma', 0.01)
+cfg.add_model_parameter"fraction_infected", 0.05)
+model.set_initial_status(cfg)
 ```
 
 ```python
 # Simulation execution
 iterations = model.iteration_bunch(200)
+trends = model.build_trends(iterations)
+```
+
+```python
+# Visualisation
+viz = DiffusionTrend(model, trends)
+p = viz.plot(width=400, height=400)
+show(p)
 ```
 
 <!-- #region toc-hr-collapsed=false -->
@@ -805,39 +806,40 @@ i)
 # References
 
 
-[1] - Clure, E., Paul, M. & ABC Staff. (2020). ‘Anti-lockdown coronavirus protesters arrested in Melbourne, solidarity rallies held across Australia’, ABC. https://www.abc.net.au/news/2020-09-05/melbourne-coronavirus-restrictions-lockdown-protests-police/12633164
+[1] - Archana, C., Pavan, J. & Satish, S. (2020). ‘COVID 19: Outbreak, Structure, and Current Therapeutic Strategies.’, Sakun Publishing House, vol. 11, issue 7, pp. 6825-6835. http://web.b.ebscohost.com.ezproxy.lib.uts.edu.au/ehost/pdfviewer/pdfviewer?vid=1&sid=5681bd2d-ac79-472a-8acc-63536f582b70%40sessionmgr101
 
-[2] - Grattan, M. & ABC Staff. (2020). ‘COVID-19 divides the nation and isolates MPs from Victoria’, ABC. https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
+[2] - Australian Bureau of Statistics. (2020). ‘Employment and Unemployment Statistics’, ABS. https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release
 
-[3] - Australian Bureau of Statistics. (2020). ‘Employment and Unemployment Statistics’, ABS. https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release
+[3] - Australian Bureau of Statistics. (2020). ‘People and Communities, Household impacts of Covid-19 Survey’, ABS. https://www.abs.gov.au/statistics/people/people-and-communities/household-impacts-covid-19-survey/latest-release
 
-[4] - Australian Bureau of Statistics. (2020). ‘People and Communities, Household impacts of Covid-19 Survey’, ABS. https://www.abs.gov.au/statistics/people/people-and-communities/household-impacts-covid-19-survey/latest-release
+[4] - Australian Government. (2020). ‘How does immunisation work?’, Department of Health. https://www.health.gov.au/health-topics/immunisation/about-immunisation/how-does-immunisation-work#:~:text=Vaccines%20strengthen%20your%20immune%20system&text=Vaccines%20use%20dead%20or%20severely,protect%20you%20against%20future%20infection
 
-[5] - Archana, C., Pavan, J. & Satish, S. (2020). ‘COVID 19: Outbreak, Structure, and Current Therapeutic Strategies.’, Sakun Publishing House, vol. 11, issue 7, pp. 6825-6835. http://web.b.ebscohost.com.ezproxy.lib.uts.edu.au/ehost/pdfviewer/pdfviewer?vid=1&sid=5681bd2d-ac79-472a-8acc-63536f582b70%40sessionmgr101
+[5] - Australian Government. (2020). ‘What you need to know about coronavirus (COVID-19)’, Department of Health. https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19
 
-[6] - Australian Government. (2020). ‘What you need to know about coronavirus (COVID-19)’, Department of Health. https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19
+[6] - Burki, T. (2020). ‘The online anti-vaccine movement in the age of COVID-19’, THE LANCET, vol. 2, issue 10, E504-E505. https://www.thelancet.com/journals/landig/article/PIIS2589-7500(20)30227-2/fulltext
 
-[7] - Worldometer. (2020). ‘COVID-19 CORONAVIRUS PANDEMIC’, Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
+[7] - Carter, R., Chou, E. & Singgih, P. (2020). ‘Tensions flare at LA Civic Center over coronavirus stay-home orders’, Daily News. https://www.dailynews.com/2020/05/01/la-city-hall-protestors-plan-to-decry-coronavirus-stay-
+home-order/
 
-[8] - Crabme Pty Ltd. (2020). ‘COVID-19 Demonstration Model’, Retrieved 20 September 2020, from http://covidagentmodel.com/
+[8] - Clure, E., Paul, M. & ABC Staff. (2020). ‘Anti-lockdown coronavirus protesters arrested in Melbourne, solidarity rallies held across Australia’, ABC. https://www.abc.net.au/news/2020-09-05/melbourne-coronavirus-restrictions-lockdown-protests-police/12633164
 
-[9] - Fields, C., Koehler, B. & Timmes, F. (2015-). ‘MESA-Web’, Retrieved from http://mesa-web.asu.edu
+[9] - Crabme Pty Ltd. (2020). ‘COVID-19 Demonstration Model’, Retrieved 20 September 2020, from http://covidagentmodel.com/
 
-[10] - Australian Government. (2020). ‘How does immunisation work?’, Department of Health. https://www.health.gov.au/health-topics/immunisation/about-immunisation/how-does-immunisation-work#:~:text=Vaccines%20strengthen%20your%20immune%20system&text=Vaccines%20use%20dead%20or%20severely,protect%20you%20against%20future%20infection
+[10] - Fields, C., Koehler, B. & Timmes, F. (2015-). ‘MESA-Web’, Retrieved from http://mesa-web.asu.edu
 
-[11] - Ipsos. (2020). ‘9 in 10 Australians say they would get vaccinated for COVID-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
+[11] - G. Rossetti, L. Milli, S. Rinzivillo, A. Sirbu, D. Pedreschi, F. Giannotti. "NDlib: Studying Network Diffusion Dynamics", IEEE International Conference on Data Science and Advanced Analytics, DSAA. 2017.
 
-[12] - Jansson, J. (2020). ‘COVID-19 modelling is wrong - Compartmental models underestimate our ability to control the epidemic’ https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
+[12] - Grattan, M. & ABC Staff. (2020). ‘COVID-19 divides the nation and isolates MPs from Victoria’, ABC. https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
 
-[13] - Loughridge, J., Thorpe, J. & Picton, M. (2020). ‘Economic consequences as a result of COVID-19’, PwC, pp 2-10. https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
+[13] - He, S., Peng, Y. & Sun, K. (2020, June 18). ‘SEIR modeling of the COVID-19 and its dynamics’ SpringerLink, pp. 1667-1680.  https://link.springer.com/article/10.1007/s11071-020-05743-y
 
-[14] - Burki, T. (2020). ‘The online anti-vaccine movement in the age of COVID-19’, THE LANCET, vol. 2, issue 10, E504-E505. https://www.thelancet.com/journals/landig/article/PIIS2589-7500(20)30227-2/fulltext
+[14] - Ipsos. (2020). ‘9 in 10 Australians say they would get vaccinated for COVID-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
 
-[15] - Lau, H., Khosrawipour, V., Kocbach, P., Mikolajczyk, A., Ichii, H., Schubert, J., Bania, J. & Khosrawipour, T. (2020, June 22). ‘Internationally lost COVID-19 cases’, ScienceDirect, vol. 53, issue 3, pp. 454-458. https://www.sciencedirect.com/science/article/pii/S1684118220300736
+[15] - Jansson, J. (2020). ‘COVID-19 modelling is wrong - Compartmental models underestimate our ability to control the epidemic’ https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
 
-[16] - Carter, R., Chou, E. & Singgih, P. (2020). ‘Tensions flare at LA Civic Center over coronavirus stay-home orders’, Daily News. https://www.dailynews.com/2020/05/01/la-city-hall-protestors-plan-to-decry-coronavirus-stay-home-order/
+[16] - Loughridge, J., Thorpe, J. & Picton, M. (2020). ‘Economic consequences as a result of COVID-19’, PwC, pp 2-10. https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
 
-[17] - He, S., Peng, Y. & Sun, K. (2020, June 18). ‘SEIR modeling of the COVID-19 and its dynamics’ SpringerLink, pp. 1667-1680.  https://link.springer.com/article/10.1007/s11071-020-05743-y
+[17] - Lau, H., Khosrawipour, V., Kocbach, P., Mikolajczyk, A., Ichii, H., Schubert, J., Bania, J. & Khosrawipour, T. (2020, June 22). ‘Internationally lost COVID-19 cases’, ScienceDirect, vol. 53, issue 3, pp. 454-458. https://www.sciencedirect.com/science/article/pii/S1684118220300736
 
 [18] - The Hon Scott Morrison MP. (2020). ‘Australia secures onshore manufacturing agreements for two COVID-19 vaccines’. https://www.pm.gov.au/media/australia-secures-onshore-manufacturing-agreements-two-covid-19-vaccines
 
@@ -845,3 +847,8 @@ i)
 
 [20] - Wilensky, U. (1997). ‘NetLogo Segregation model’, Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. http://ccl.northwestern.edu/netlogo/models/Segregation
 
+[21] - Worldometer. (2020). ‘COVID-19 CORONAVIRUS PANDEMIC’, Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
+
+```python
+
+```
