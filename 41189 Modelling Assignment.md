@@ -297,7 +297,7 @@ Similarly, the 'riot' action could be identified as wearing a mask. It is safe t
 #### Agent Based Modelling
 
 
-https://medium.com/dataseries/understanding-agent-based-model-ae1941f7c9db
+(Alto, 2020)
 
 ```python
 from mesa import Agent, Model
@@ -392,7 +392,7 @@ out.plot()
 #### Schelling’s Segregation Model
 
 
-https://github.com/geraintpalmer/SchellingSegregationModel/blob/master/schelling.ipynb
+(Palmer, 2018)
 
 ```python
 %matplotlib inline
@@ -562,7 +562,7 @@ fig.savefig('increase_preference')
 #### Riot Model (Granovetter Threshold Theory)
 
 
-https://ndlib.readthedocs.io/en/latest/reference/models/epidemics/Threshold.html#example
+(G. Rossetti et al., n.d.)
 
 ```python
 import networkx as nx
@@ -692,6 +692,24 @@ This model consists of 2,466 agents where the impossible 100% similarity is expe
 
 
 
+When implementing the riot model into the chosen scenario, which relates to society's tolerance of accepting a vaccine or wearing a mask as an appropriate preventative measure to the Covid-19 pandemic, we consider the Granovetter Threshold Theory in order to recognise whether the majority or the minority of the community will 'riot' or accept the action in question. This model, when applied to a sample population, can be used to statistically estimate the overall success of such optional measures as vaccines and mask-wearing through the consideration of how many members of the society will accept the course of action in order to diminish the influence of the virus. 
+
+
+Consider we had a sample population of 10 individuals with the following thresholds {0,0,3,4,5,6,7,8,9,10}
+
+In this case, the two individuals with a threshold of 0 would immediately 'riot', whether that action is accepting a vaccine or wearing a mask in public environments. However, due to the fact that the lowest threshold after the 2 initial rioters is 3, they choose not to riot (since 3>2). So the total number of rioters in this scenario would be 2, which would essentially render the preventative measure useless since 80% of the population is still entirely exposed to the virus.
+
+
+Now, consider we had a sample population of 10 individuals with the following thresholds {0,0,2,3,4,5,6,7,8,9}
+
+Similarly to the previous predicament, the first two immediately 'riot'. However, this time the next individual has a threshold of 2. Since 2<=2, the individual will choose to riot, incrementing the amount of rioters to 3. This continues to the next individual, and the next, until all individuals in the sample population have begun 'rioting'. Hence, in this scenario, 100% of the society has accepted the chosen preventative measure, significantly decreasing the probability of survival for the virus in that closed community. 
+
+
+Again, consider we had a sample population of 10 individuals with the following thresholds {1,2,3,4,5,6,7,8,9,10}
+
+This time, due to the fact that the individual with the lowest threshold has a threshold of 1, nobody in this sample population will ever accept the preventative measure, since nobody is willing to initially choose to riot with a threshold of 0. Hence, the number of rioters will always be 0 in the scenario. Hence, the likelihood of eradicating the virus in this society is essentially futile since 0% of the population is willing to accept a preventative measure.
+
+
 ## Perform a basic sensitivity analysis, i.e., identify with parameters are most sensitive/insensitive for the outputs
 
 ```python
@@ -801,49 +819,49 @@ v) When selecting a model, there must be a succinct understanding of the goal, i
 # References
 
 
-[1] - Archana, C., Pavan, J. & Satish, S. (2020). ‘COVID 19: Outbreak, Structure, and Current Therapeutic Strategies.’, Sakun Publishing House, vol. 11, issue 7, pp. 6825-6835. http://web.b.ebscohost.com.ezproxy.lib.uts.edu.au/ehost/pdfviewer/pdfviewer?vid=1&sid=5681bd2d-ac79-472a-8acc-63536f582b70%40sessionmgr101
+[1] - Alto, V. (2020). ‘Understanding Agent Based Model: An Implementation with Python’, Medium.     https://medium.com/dataseries/understanding-agent-based-model-ae1941f7c9db
 
-[2] - Australian Bureau of Statistics. (2020). ‘Employment and Unemployment Statistics’, ABS. https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release
+[2] - Archana, C., Pavan, J. & Satish, S. (2020). ‘COVID 19: Outbreak, Structure, and Current Therapeutic Strategies.’, Sakun Publishing House, vol. 11, issue 7, pp. 6825-6835. http://web.b.ebscohost.com.ezproxy.lib.uts.edu.au/ehost/pdfviewer/pdfviewer?vid=1&sid=5681bd2d-ac79-472a-8acc-63536f582b70%40sessionmgr101
 
-[3] - Australian Bureau of Statistics. (2020). ‘People and Communities, Household impacts of Covid-19 Survey’, ABS. https://www.abs.gov.au/statistics/people/people-and-communities/household-impacts-covid-19-survey/latest-release
+[3] - Australian Bureau of Statistics. (2020). ‘Employment and Unemployment Statistics’, ABS. https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release
 
-[4] - Australian Government. (2020). ‘How does immunisation work?’, Department of Health. https://www.health.gov.au/health-topics/immunisation/about-immunisation/how-does-immunisation-work#:~:text=Vaccines%20strengthen%20your%20immune%20system&text=Vaccines%20use%20dead%20or%20severely,protect%20you%20against%20future%20infection
+[4] - Australian Bureau of Statistics. (2020). ‘People and Communities, Household impacts of Covid-19 Survey’, ABS. https://www.abs.gov.au/statistics/people/people-and-communities/household-impacts-covid-19-survey/latest-release
 
-[5] - Australian Government. (2020). ‘What you need to know about coronavirus (COVID-19)’, Department of Health. https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19
+[5] - Australian Government. (2020). ‘How does immunisation work?’, Department of Health. https://www.health.gov.au/health-topics/immunisation/about-immunisation/how-does-immunisation-work#:~:text=Vaccines%20strengthen%20your%20immune%20system&text=Vaccines%20use%20dead%20or%20severely,protect%20you%20against%20future%20infection
 
-[6] - Burki, T. (2020). ‘The online anti-vaccine movement in the age of COVID-19’, THE LANCET, vol. 2, issue 10, E504-E505. https://www.thelancet.com/journals/landig/article/PIIS2589-7500(20)30227-2/fulltext
+[6] - Australian Government. (2020). ‘What you need to know about coronavirus (COVID-19)’, Department of Health. https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/what-you-need-to-know-about-coronavirus-covid-19
 
-[7] - Carter, R., Chou, E. & Singgih, P. (2020). ‘Tensions flare at LA Civic Center over coronavirus stay-home orders’, Daily News. https://www.dailynews.com/2020/05/01/la-city-hall-protestors-plan-to-decry-coronavirus-stay-
+[7] - Burki, T. (2020). ‘The online anti-vaccine movement in the age of COVID-19’, THE LANCET, vol. 2, issue 10, E504-E505. https://www.thelancet.com/journals/landig/article/PIIS2589-7500(20)30227-2/fulltext
+
+[8] - Carter, R., Chou, E. & Singgih, P. (2020). ‘Tensions flare at LA Civic Center over coronavirus stay-home orders’, Daily News. https://www.dailynews.com/2020/05/01/la-city-hall-protestors-plan-to-decry-coronavirus-stay-
 home-order/
 
-[8] - Clure, E., Paul, M. & ABC Staff. (2020). ‘Anti-lockdown coronavirus protesters arrested in Melbourne, solidarity rallies held across Australia’, ABC. https://www.abc.net.au/news/2020-09-05/melbourne-coronavirus-restrictions-lockdown-protests-police/12633164
+[9] - Clure, E., Paul, M. & ABC Staff. (2020). ‘Anti-lockdown coronavirus protesters arrested in Melbourne, solidarity rallies held across Australia’, ABC. https://www.abc.net.au/news/2020-09-05/melbourne-coronavirus-restrictions-lockdown-protests-police/12633164
 
-[9] - Crabme Pty Ltd. (2020). ‘COVID-19 Demonstration Model’, Retrieved 20 September 2020, from http://covidagentmodel.com/
+[10] - Crabme Pty Ltd. (2020). ‘COVID-19 Demonstration Model’, Retrieved 20 September 2020, from http://covidagentmodel.com/
 
-[10] - Fields, C., Koehler, B. & Timmes, F. (2015-). ‘MESA-Web’, Retrieved from http://mesa-web.asu.edu
+[11] - Fields, C., Koehler, B. & Timmes, F. (2015-). ‘MESA-Web’, Retrieved from http://mesa-web.asu.edu
 
-[11] - G. Rossetti, L. Milli, S. Rinzivillo, A. Sirbu, D. Pedreschi, F. Giannotti. "NDlib: Studying Network Diffusion Dynamics", IEEE International Conference on Data Science and Advanced Analytics, DSAA. 2017.
+[12] - G. Rossetti, L. Milli, S. Rinzivillo, A. Sirbu, D. Pedreschi, F. Giannotti. "NDlib: Studying Network Diffusion Dynamics", IEEE International Conference on Data Science and Advanced Analytics, DSAA. 2017.
 
-[12] - Grattan, M. & ABC Staff. (2020). ‘COVID-19 divides the nation and isolates MPs from Victoria’, ABC. https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
+[13] - Grattan, M. & ABC Staff. (2020). ‘COVID-19 divides the nation and isolates MPs from Victoria’, ABC. https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
 
-[13] - He, S., Peng, Y. & Sun, K. (2020, June 18). ‘SEIR modeling of the COVID-19 and its dynamics’ SpringerLink, pp. 1667-1680.  https://link.springer.com/article/10.1007/s11071-020-05743-y
+[14] - He, S., Peng, Y. & Sun, K. (2020, June 18). ‘SEIR modeling of the COVID-19 and its dynamics’ SpringerLink, pp. 1667-1680.  https://link.springer.com/article/10.1007/s11071-020-05743-y
 
-[14] - Ipsos. (2020). ‘9 in 10 Australians say they would get vaccinated for COVID-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
+[15] - Ipsos. (2020). ‘9 in 10 Australians say they would get vaccinated for COVID-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
 
-[15] - Jansson, J. (2020). ‘COVID-19 modelling is wrong - Compartmental models underestimate our ability to control the epidemic’ https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
+[16] - Jansson, J. (2020). ‘COVID-19 modelling is wrong - Compartmental models underestimate our ability to control the epidemic’ https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
 
-[16] - Loughridge, J., Thorpe, J. & Picton, M. (2020). ‘Economic consequences as a result of COVID-19’, PwC, pp 2-10. https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
+[17] - Loughridge, J., Thorpe, J. & Picton, M. (2020). ‘Economic consequences as a result of COVID-19’, PwC, pp 2-10. https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
 
-[17] - Lau, H., Khosrawipour, V., Kocbach, P., Mikolajczyk, A., Ichii, H., Schubert, J., Bania, J. & Khosrawipour, T. (2020, June 22). ‘Internationally lost COVID-19 cases’, ScienceDirect, vol. 53, issue 3, pp. 454-458. https://www.sciencedirect.com/science/article/pii/S1684118220300736
+[18] - Lau, H., Khosrawipour, V., Kocbach, P., Mikolajczyk, A., Ichii, H., Schubert, J., Bania, J. & Khosrawipour, T. (2020, June 22). ‘Internationally lost COVID-19 cases’, ScienceDirect, vol. 53, issue 3, pp. 454-458. https://www.sciencedirect.com/science/article/pii/S1684118220300736
 
-[18] - The Hon Scott Morrison MP. (2020). ‘Australia secures onshore manufacturing agreements for two COVID-19 vaccines’. https://www.pm.gov.au/media/australia-secures-onshore-manufacturing-agreements-two-covid-19-vaccines
+[19] - Palmer, G. (2018). ‘SchellingSegregationModel’. https://github.com/geraintpalmer/SchellingSegregationModel/blob/master/schelling.ipynb
 
-[19] - UML. (2013). ‘The Importance of Modelling’, http://umlguide2.uw.hu/ch01lev1sec1.html
+[20] - The Hon Scott Morrison MP. (2020). ‘Australia secures onshore manufacturing agreements for two COVID-19 vaccines’. https://www.pm.gov.au/media/australia-secures-onshore-manufacturing-agreements-two-covid-19-vaccines
 
-[20] - Wilensky, U. (1997). ‘NetLogo Segregation model’, Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. http://ccl.northwestern.edu/netlogo/models/Segregation
+[21] - UML. (2013). ‘The Importance of Modelling’, http://umlguide2.uw.hu/ch01lev1sec1.html
 
-[21] - Worldometer. (2020). ‘COVID-19 CORONAVIRUS PANDEMIC’, Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
+[22] - Wilensky, U. (1997). ‘NetLogo Segregation model’, Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. http://ccl.northwestern.edu/netlogo/models/Segregation
 
-```python
-
-```
+[23] - Worldometer. (2020). ‘COVID-19 CORONAVIRUS PANDEMIC’, Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
