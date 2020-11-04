@@ -566,42 +566,28 @@ https://ndlib.readthedocs.io/en/latest/reference/models/epidemics/Threshold.html
 
 ```python
 import networkx as nx
-from bokeh.io import show
 import ndlib.models.ModelConfig as mc
 import ndlib.models.epidemics as ep
-from ndlib.viz.bokeh.DiffusionTrend import DiffusionTrend
-```
 
-```python
-# Network Topology
-g = nx.erdos_renayi_graph(1000,0.1)
-```
+# Network topology
+g = nx.erdos_renyi_graph(1000, 0.1)
 
-```python
 # Model selection
-model = ep.SIRModel(g)
-```
+model = ep.ThresholdModel(g)
 
-```python
 # Model Configuration
-cfg = mc.Configuration()
-cfg.add_model_parameter('beta', 0.001)
-cfg.add_model_parameter('gamma', 0.01)
-cfg.add_model_parameter ("fraction_infected", 0.05)
-model.set_initial_status(cfg)
-```
+config = mc.Configuration()
+config.add_model_parameter('fraction_infected', 0.1)
 
-```python
+# Setting node parameters
+threshold = 0.25
+for i in g.nodes():
+    config.add_node_configuration("threshold", i, threshold)
+
+model.set_initial_status(config)
+
 # Simulation execution
 iterations = model.iteration_bunch(200)
-trends = model.build_trends(iterations)
-```
-
-```python
-# Visualisation
-viz = DiffusionTrend(model, trends)
-p = viz.plot(width=400, height=400)
-show(p)
 ```
 
 # Scenario analysis, sensitivity + uncertainty evaluation
