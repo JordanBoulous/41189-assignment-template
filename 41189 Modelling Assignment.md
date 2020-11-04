@@ -713,17 +713,18 @@ This model consists of 2,466 agents where the impossible 100% similarity is expe
 ## Discuss potential portfolio of solutions based on your previous analysis
 
 
-```python
 
-```
+As can be seen above, the models of Agent Based Models, Schelling’s Segregation Model and Riot Model have been investigated in order to stop the spread of COVID-19. After thorough analysis of each model it has been decided that Agent Based models are the most useful in preventing the spread of COVID-19 in comparison to other models. This is because agent based models show how successful a lockdown would be if every individual reduces their interactions. 
 
-```python
 
-```
+Many model thinking can be used in order to propose solutions to improve the state of the systems that have been used in order to prevent COVID-19. In terms of agent based models, one of the main disadvantages of it is the performance speed of these models reduces often. One way of improving these agent based models’ performance speed is by adapting a time extension to it. This will improve the solution as it will portray to the scientist’s the solution at a quicker rate. Another limitation of Agent based models is it is reliant that all the individuals will reduce their interactions, which means the solution will not work with everyone as not every individual will follow lockdown rules. One way to improve this is by excluding the people who don’t follow lockdown rules as this will show the real success of the lockdown and improve the data that is shown from agent based models. 
 
-```python
 
-```
+
+By using many model thinking, Schelling’s Segregation model can be improved to portray a better solution of preventing the spread of COVID-19. One of the current issues with Segregation models is that running the model with the same preference configuration can potentially lead to vastly different outputs, hence these models can be slightly unreliable. One of the ways of resolving this issue is by conducting several tests before the Segregation model is completed and synthesising the test results to get a more accurate final result. Another thing that can be done to Segregation Models is changing the required similarity rates of these models, as Segregation Models fail to account for people changing their behaviour over time. Segregation Models showing people’s changing behaviours will delineate a more accurate solution in order to prevent the spread of COVID-19. Another disadvantage is that Segregation Models vary from city-to-city. People in one city may segregate more or less when taking into account multiple factors such as wealth, race, if people who have COVID-19 are nearby and proximity of houses.
+
+
+With respect to many model thinking, Granovetter’s Riot Model can be used to see if people will accept a new vaccine as a preventative measure for COVID-19. The main disadvantage with Granovetter’s Riot Model is that a small sample of the public must be willing to test out the vaccine as soon as it is released. If everyone has a threshold greater or equal than 1, no one will try the vaccine. By getting a willing volunteer to test, we can apply the Riot Model successfully and demonstrate how quickly the vaccine will be distributed globally. In a way similar to Schelling’s Segregation Model, Granovetter’s Riot Model does not account for people changing their behaviour over time. A person’s threshold may go up suddenly for a number of reasons, such as a recently found side effect with a vaccine or a family member advises them to not get it. This is important as it means the person may never take the vaccine. Accounting for this changing behaviour and increasing people’s confidence may make Riot Models more suitable, but this is difficult to do so this model is not suitable for this scenario.
 
 <!-- #region toc-hr-collapsed=false -->
 # Reflection on group + individual approach to assignment
