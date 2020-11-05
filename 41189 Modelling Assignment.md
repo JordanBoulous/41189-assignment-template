@@ -795,7 +795,22 @@ Another characteristic that I will use in order to determine which modelling app
 ### Cameron Solomon reflection
 
 
-i)
+i) 2.1: “Research and review literature, news, digital media, drivers and how the problem is being addressed by academia, industry, government, etc.” 3.1: “Based on your self-study of the supermarket of models, explain the three models that you have chosen to look at the problem.” Implementation of code with others, edited code so it applies to COVID-19. Part 6 with Alex. Edited and numbered all the references and applied the APA format, had experience with it in a previous assignment which used the same referencing style.
+
+ii) Jordan – Group leader, created the IPYNB/Jupyter Notebook file, applied changes to it after the rest of us edited the Google Doc. Came up with the idea and ultimately decided on the models. 3.2 (explaining models), 3.3 (data sources for models), applied the code into Python/Jupyter, 5.1 (establishing baseline parameter sets)
+Alex – 2.2 (stakeholder + system), 4 (implementation of code with me), 6 with me (portfolio)
+Raymond – 1.1 (intro), 2.3 (current models), 5.2 (sensitivity analysis)
+Ultimately, we all completed our allocated tasks in the assignment in a timely and efficient manner. Despite COVID-19 making meetings difficult, we all managed to communicate well via text or scheduled online meetings. Combining our efforts and encouraging each other meant that we completed the assignment with our best efforts.
+
+iii) Learnt how to apply the 3 chosen models in the real world, i.e. COVID-19 in our case. Expanded my existing knowledge on these models, as well as the mathematics associated with them really allowed for a deeper understanding. Our group was very active on Messenger compared to other groups I’ve been with which was nice. We all encouraged each other, understood when we couldn’t attend a meeting and helped when someone didn’t understand a question. Applied many-model thinking to propose a solution to a problem in our society. Synthesising these multiple models to address a problem was not something I had thought a lot about until this assignment. Background information really got my mind going and thinking about ways I could apply the models to the problem at hand. I was also unfamiliar with GitHub prior to this subject so getting to understand it was great.
+
+iv) Not being available due to work and other commitments. Usually, we were all available during the 3-6pm workshop, so we just met up then on MS Teams or Zoom and it was fine. If we were unavailable during the workshop, we just messaged the chat and organised everything just by texting. We could also edit the Google Doc we had at any time which was useful when checking over questions I did with Alex.
+We also faced problems with the implementation of the code, as none of us were too confident with Python coding. It was difficult to alter code that we cannot even test or compile in any way. This was solved with help from Juan, the resources he provided, and each other.
+Making changes to the Jupyter Lab file. Although I attempted to install the Git extension and Jupyter, I could not get Jupyter Labs working. Instead, me and the other group members had to ask Jordan to make any changes to the file, as he had the appropriate access.
+
+v) If I were faced with a real-world problem that involved modelling, the first step I would take is to inspect the problem or system at hand. This would allow me to get an understanding of the system’s purpose, actors, data and behaviour. Different models all serve different purposes, rely on the behaviour of individuals inside of the system and have different data patterns (constant, linear, cyclic). Some models also have a finite number of actors such as Colonel Blotto, whereas other models such as global agent-based models are huge as it simulates the world in a 1:1 ratio. I would then name the key components of the system as well as the flow of logic between these parts, and possibly attempt to match a model (or multiple models) based on all these factors.
+Once I have developed an adequate understanding of the system, I could inspect previous problems that are similar to the current model. If they have similar characteristics, then I may be able to apply the same model. Based on what I have learnt in this assignment in regard to many-model thinking, combining elements from particular models can sometimes be the best solution to a problem.
+
 
 
 ### Raymond Lam reflection
