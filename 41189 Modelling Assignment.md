@@ -60,17 +60,7 @@ Finally, this report aims to outline the eventual distribution of vaccines. A Co
 ## Research and review literature, news, digital media, drivers and how the problem is being addressed by academia, industry, government, etc.
 
 
-![Rich Picture](Figures/richPicture.png)
-
-
-
-
-
-
-
-
-
-This article [5] gives a detailed description of COVID-19 and includes details about the original outbreak in Wuhan, forms of transmission, virion structure, physicochemical properties, replication, methods of diagnosis, treatment and precautions to prevent spread. The contents of the text are complete, clearly documented and use a variety of different resources to ensure accuracy. It also used very recent information that was available and despite being released in July, the article is still relevant in September. The authors study pharmacy, biomedical science and life science - so there may be some vested interest and bias due to the authors studying similar courses.
+This article [2] gives a detailed description of COVID-19 and includes details about the original outbreak in Wuhan, forms of transmission, virion structure, physicochemical properties, replication, methods of diagnosis, treatment and precautions to prevent spread. The contents of the text are complete, clearly documented and use a variety of different resources to ensure accuracy. It also used very recent information that was available and despite being released in July, the article is still relevant in September. The authors study pharmacy, biomedical science and life science - so there may be some vested interest and bias due to the authors studying similar courses.
 The article states that person-to-person transmission is likely for COVID-19 and is primarily spread through direct contact and droplets from a cough or sneeze. However, it was also found in stool samples, the gastrointestinal tract, saliva and urine. It also states that the SARS-CoV-2 (COVID-19) virion is spherical with a diameter of 80-120nm, contains a non-segmented, positive-sense RNA genome and contains numerous glycoproteins. Diagnosis and testing involves a swab and is often performed when a patient experiences fever, a sore throat, dry cough, dyspnea or they were in contact with a recent confirmed case.
 Preventative measures include wearing face masks and other personal protective equipment (gloves), good hand hygiene, social distancing, isolation and quarantine. Rapid diagnosis, vaccines and therapeutics are critical in managing the COVID-19 pandemic.
 
@@ -98,6 +88,9 @@ Various other government pages are available for each state and territory which 
 
 
 
+
+
+![RichPicture.JPG](ComplexSystemsImages/RichPicture.JPG)
 
 
 Agent Based Model- Stakeholders: The Government, Customers, Employees, Media, Trade Unions, Communities, Vendors 
@@ -589,6 +582,10 @@ model.set_initial_status(config)
 # Simulation execution
 iterations = model.iteration_bunch(200)
 ```
+
+![WorkingRiotCode](ComplexSystemsImages/WorkingRiotCode.JPG)
+
+
 
 # Scenario analysis, sensitivity + uncertainty evaluation
 
