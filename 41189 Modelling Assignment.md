@@ -709,17 +709,13 @@ This time, due to the fact that the individual with the lowest threshold has a t
 
 ## Perform a basic sensitivity analysis, i.e., identify with parameters are most sensitive/insensitive for the outputs
 
-```python
 
-```
+Models are used to simulate the world, to see how decisions made today will impact the world tomorrow. Using insights derived from these models, leaders all over the world are able to make decisions, creating new or revise current policies. Especially in the midst of a pandemic, the importance of modelling has become more profound than ever before. With leaders all over the world turning to modelling agencies and universities for models of Covid-19 infections. A report made by the Department of Health modelled three possible scenarios for Australia’s health system; uncontrolled, quarantine+isolation and quarantine + isolation + social distancing, with each progression having a lesser toll on the health system (DoH, 2020). Using this information they are able to follow the actual cases in Australia and allocate ICU beds, doctors and nurses accordingly. Riot and Segregation models are being utilized all over the world in an effort to predict and suppress the spread of Covid-19. 
 
-```python
 
-```
-
-```python
-
-```
+![SensitivityAnalysis1.JPG](ComplexSystemsImages/SensitivityAnalysis1.JPG) 
+![SensitivityAnalysis2.JPG](ComplexSystemsImages/SensitivityAnalysis2.JPG) 
+![SensitivityAnalysis3.JPG](ComplexSystemsImages/SensitivityAnalysis3.JPG) 
 
 <!-- #region toc-hr-collapsed=false -->
 # Proposed solutions
@@ -852,28 +848,32 @@ home-order/
 
 [10] - Crabme Pty Ltd. (2020). ‘COVID-19 Demonstration Model’, Retrieved 20 September 2020, from http://covidagentmodel.com/
 
-[11] - Fields, C., Koehler, B. & Timmes, F. (2015-). ‘MESA-Web’, Retrieved from http://mesa-web.asu.edu
+[11] - Department of Health. (2020). ‘Government response to the COVID-19 outbreak’ https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/government-response-to-the-covid-19-outbreak#what-we-are-doing-now
 
-[12] - G. Rossetti, L. Milli, S. Rinzivillo, A. Sirbu, D. Pedreschi, F. Giannotti. "NDlib: Studying Network Diffusion Dynamics", IEEE International Conference on Data Science and Advanced Analytics, DSAA. 2017.
+[12] - Dong E, Du H, Gardner L. (2020). An interactive web-based dashboard to track COVID-19 in real time. Lancet Inf Dis. 20(5):533-534. doi: 10.1016/S1473-3099(20)30120-1
 
-[13] - Grattan, M. & ABC Staff. (2020). ‘COVID-19 divides the nation and isolates MPs from Victoria’, ABC. https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
+[13] - Fields, C., Koehler, B. & Timmes, F. (2015-). ‘MESA-Web’, Retrieved from http://mesa-web.asu.edu
 
-[14] - He, S., Peng, Y. & Sun, K. (2020, June 18). ‘SEIR modeling of the COVID-19 and its dynamics’ SpringerLink, pp. 1667-1680.  https://link.springer.com/article/10.1007/s11071-020-05743-y
+[14] - G. Rossetti, L. Milli, S. Rinzivillo, A. Sirbu, D. Pedreschi, F. Giannotti. "NDlib: Studying Network Diffusion Dynamics", IEEE International Conference on Data Science and Advanced Analytics, DSAA. 2017.
 
-[15] - Ipsos. (2020). ‘9 in 10 Australians say they would get vaccinated for COVID-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
+[15] - Grattan, M. & ABC Staff. (2020). ‘COVID-19 divides the nation and isolates MPs from Victoria’, ABC. https://www.abc.net.au/news/2020-08-07/victoria-coronavirus-lockdown-economy-parliament-quarantine/12533214
 
-[16] - Jansson, J. (2020). ‘COVID-19 modelling is wrong - Compartmental models underestimate our ability to control the epidemic’ https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
+[16] - He, S., Peng, Y. & Sun, K. (2020, June 18). ‘SEIR modeling of the COVID-19 and its dynamics’ SpringerLink, pp. 1667-1680.  https://link.springer.com/article/10.1007/s11071-020-05743-y
 
-[17] - Loughridge, J., Thorpe, J. & Picton, M. (2020). ‘Economic consequences as a result of COVID-19’, PwC, pp 2-10. https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
+[17] - Ipsos. (2020). ‘9 in 10 Australians say they would get vaccinated for COVID-19’ https://www.ipsos.com/en-au/9-10-australians-say-they-would-get-vaccinated-covid-19
 
-[18] - Lau, H., Khosrawipour, V., Kocbach, P., Mikolajczyk, A., Ichii, H., Schubert, J., Bania, J. & Khosrawipour, T. (2020, June 22). ‘Internationally lost COVID-19 cases’, ScienceDirect, vol. 53, issue 3, pp. 454-458. https://www.sciencedirect.com/science/article/pii/S1684118220300736
+[18] - Jansson, J. (2020). ‘COVID-19 modelling is wrong - Compartmental models underestimate our ability to control the epidemic’ https://www.youtube.com/watch?v=kS__P0N5JVs&feature=youtu.be&ab_channel=JamesJansson
 
-[19] - Palmer, G. (2018). ‘SchellingSegregationModel’. https://github.com/geraintpalmer/SchellingSegregationModel/blob/master/schelling.ipynb
+[19] - Loughridge, J., Thorpe, J. & Picton, M. (2020). ‘Economic consequences as a result of COVID-19’, PwC, pp 2-10. https://www.pwc.com.au/publications/australia-matters/economic-consequences-coronavirus-COVID-19-pandemic.pdf
 
-[20] - The Hon Scott Morrison MP. (2020). ‘Australia secures onshore manufacturing agreements for two COVID-19 vaccines’. https://www.pm.gov.au/media/australia-secures-onshore-manufacturing-agreements-two-covid-19-vaccines
+[20] - Lau, H., Khosrawipour, V., Kocbach, P., Mikolajczyk, A., Ichii, H., Schubert, J., Bania, J. & Khosrawipour, T. (2020, June 22). ‘Internationally lost COVID-19 cases’, ScienceDirect, vol. 53, issue 3, pp. 454-458. https://www.sciencedirect.com/science/article/pii/S1684118220300736
 
-[21] - UML. (2013). ‘The Importance of Modelling’, http://umlguide2.uw.hu/ch01lev1sec1.html
+[21] - Palmer, G. (2018). ‘SchellingSegregationModel’. https://github.com/geraintpalmer/SchellingSegregationModel/blob/master/schelling.ipynb
 
-[22] - Wilensky, U. (1997). ‘NetLogo Segregation model’, Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. http://ccl.northwestern.edu/netlogo/models/Segregation
+[22] - The Hon Scott Morrison MP. (2020). ‘Australia secures onshore manufacturing agreements for two COVID-19 vaccines’. https://www.pm.gov.au/media/australia-secures-onshore-manufacturing-agreements-two-covid-19-vaccines
 
-[23] - Worldometer. (2020). ‘COVID-19 CORONAVIRUS PANDEMIC’, Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
+[23] - UML. (2013). ‘The Importance of Modelling’, http://umlguide2.uw.hu/ch01lev1sec1.html
+
+[24] - Wilensky, U. (1997). ‘NetLogo Segregation model’, Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL. http://ccl.northwestern.edu/netlogo/models/Segregation
+
+[25] - Worldometer. (2020). ‘COVID-19 CORONAVIRUS PANDEMIC’, Retrieved 19 October 2020, from https://www.worldometers.info/coronavirus/
